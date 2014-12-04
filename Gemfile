@@ -17,7 +17,7 @@ gem 'bootstrap-sass', '~> 3.1.1'
 gem 'activemerchant'
 # Account Manager
 gem 'devise'
-
+gem 'puma'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
