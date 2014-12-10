@@ -9,4 +9,7 @@ Rails.application.routes.draw do
 
   resources :user
   
+  devise_scope :user do  
+    get 'profile/:id',        to: 'users#show',          as: :user_profile
+  end
 end

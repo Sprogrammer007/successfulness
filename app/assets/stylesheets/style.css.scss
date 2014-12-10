@@ -1,0 +1,167 @@
+@charset "utf-8";
+@import "bootstrap";
+
+@mixin inset {
+  -moz-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.24);
+}
+
+// Global
+html, body {
+  height: 100%;
+  vertical-align: baseline;
+}
+
+body {
+  font-family: "OpenSans", Helvetica, Arial, sans-serif;
+  background-color: #FFFFFF;
+}
+
+h1, h2, h3, h4 {
+  color: #393d40;
+  font-family: "OpenSans", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  line-height: 1.4;
+  margin-bottom: 0.3125em;
+  margin-top: 0;
+}
+
+// Style Helper
+.radius-r {
+  border-radius: 5px;
+}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+// Helpers
+.divider {
+  display: block;
+  width: 100%;
+  margin: auto;
+  margin-top: 13px;
+  margin-bottom: 13px;
+  border: 0;
+  border-top: 1px solid #d8d8d8;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.va-top {
+  vertical-align: top;
+}
+
+// Text Helper
+.ts {
+  font-size: 85%;
+}
+
+.ts-m {
+  font-size: 95%;
+}
+
+.tcg {
+  color: #aaaaaa;
+}
+
+// Margins Helper
+.offset-23 {
+  margin-left: 23%;
+}
+
+.mtt-xs {
+  margin-top: 0.5em;
+}
+
+.mtt {
+  margin-top: 0.85em;
+}
+
+.mtxs {
+  margin-top: 1em;
+}
+
+.mts {
+  margin-top: 1.25em;
+}
+
+.mtl {
+  margin-top: 1.5em;
+}
+
+.mbs {
+  margin-bottom: 1.25em;
+}
+
+.mbs-m {
+  margin-bottom: 1.15em;
+}
+
+.mgl {
+  margin-bottom: 1.5em;
+}
+
+.mgtb-l {
+  margin-bottom: 2.5em;
+  margin-top: 2.5em;
+}
+
+// Size Helpers
+
+.boxed-l {
+  max-width: 80em;
+}
+
+.boxed-m {
+  max-width: 60em;
+}
+
+.boxed-s {
+  max-width: 30em;
+}
+
+// Top-Nav
+
+// Login
+
+.form-input {
+  border-radius: 3px;
+  border: 2px solid #d9d7d5;
+  box-sizing: border-box;
+  line-height: normal;
+  font-size: 1em;
+  padding: 0.625em;
+  transition: border-color 0.2s ease-in-out 0s;
+  width: 100%;
+}
+
+.form-input:focus {
+  border-color: #278998;
+  outline: medium none;
+}
+
+.btn-submit {
+  min-width: 18.75em;
+  background: none repeat scroll 0% 0% #a2d053;
+  color: white;
+  cursor: pointer;
+  font-family: "OpenSans", Helvetica, Arial, sans-serif;
+  font-size: 105%;
+  font-weight: bold;
+  line-height: 3;
+  padding: 0px 2.5em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: #6363ce 0.2s ease-in-out 0s, color 0.2s ease-in-out 0s;
+  white-space: nowrap;
+}

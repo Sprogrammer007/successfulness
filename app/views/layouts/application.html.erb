@@ -24,14 +24,16 @@
   </head>
 
   <body>
-    <div class="row">
+    <header>
       <!-- TODO Header Tempalte -->
-
+      <%= render 'layouts/top_nav' %>
       <%= render 'shared/flash_notice'%>
     </div>
 
     <div class="main-content-wrapper row">
-      <%= yield %>
+      <div class="container">
+        <%= yield %>
+      </div>
     </div>
 
     <footer>
