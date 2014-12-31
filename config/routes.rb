@@ -1,15 +1,13 @@
 Rails.application.routes.draw do
 
-  root  'static_pages#home'
-
   devise_for( :users, 
               :controllers  => { :registrations => "registrations", :sessions => "sessions" }, 
-              :path => ""
+              :path => "/users"
             )
+  resources :users
 
-  resources :user
-  
-  devise_scope :user do  
-    get 'profile/:id',        to: 'users#show',          as: :user_profile
-  end
+
+  root to: 'application#index'
+
+  match '/auth_user', to: 'application#authenticate_user', via: 'get'
 end

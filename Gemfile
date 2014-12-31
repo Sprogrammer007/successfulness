@@ -18,7 +18,6 @@ gem 'activemerchant'
 # Account Manager
 gem 'devise'
 gem 'puma'
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'jquery-ui-rails', '~> 5.0.0'
@@ -26,6 +25,8 @@ gem 'jquery-ui-rails', '~> 5.0.0'
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
+# Ember
+gem 'ember-rails'
 
 
 group :development do

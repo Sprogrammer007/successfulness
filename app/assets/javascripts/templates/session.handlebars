@@ -1,0 +1,30 @@
+<div class="sign-up center-block">
+  {{#if errors.length}}
+    <div class="alert alert-danger">
+      <ul>
+
+        {{#each error in errors}}
+          <li>
+            {{error}}
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  {{/if}}
+  
+  <h2>Log In</h2>
+  <form  role="form">
+    <fieldset class="form-group mbs">
+      <label class="form-label">Email: </label>
+      {{input valueBinding="email" class="form-control"}}
+    </fieldset>
+
+    <fieldset class="form-group mbs">
+      <label class="form-label">Password: </label> <i>(8 characters minimum)</i>
+      {{input valueBinding="password" type="password" class="form-control"}}
+     </fieldset>
+
+    <input type="submit" value="Log In" class="btn btn-default" {{action 'logIn'}} >
+  </form>
+
+</div>
