@@ -25,9 +25,6 @@ gem 'jquery-ui-rails', '~> 5.0.0'
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
-# Ember
-gem 'ember-rails'
-
 
 group :development do
   gem 'faker', '1.2.0'

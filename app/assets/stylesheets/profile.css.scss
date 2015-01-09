@@ -1,0 +1,159 @@
+// Profile Style
+
+.banner-container {
+  width: 100%;
+  overflow: hidden;
+  height: 480px;
+  background: none repeat scroll 0% 0% #333;
+  position: relative;
+}
+
+.banner-container .channel-link {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
+.channel-link .profile-photo {
+  background: none repeat scroll 0% 0% #FFF;
+  padding: 4px;
+}
+
+.channel-link .goto {
+  top: 4px !important;
+  left: 4px !important;
+  right: 4px !important;
+  bottom: 4px !important;
+}
+
+.channel-link .profile-photo div {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  text-align: center;
+  padding: 20px 0px;
+  background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.75);
+  color: #FFF;
+  display: none;
+  line-height: 20px;
+  font-size: 14px;
+}
+
+.banner-container img {
+  min-width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.channel-link .profile-photo img {
+  width: 80px;
+  height: 80px;
+}
+
+.banner-container .channel-link .live-status {
+  background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.75);
+  color: rgba(255, 255, 255, 0.75);
+  width: 88px;
+  height: 20px;
+  line-height: 20px;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-container .profile-info {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  padding: 30px 31px 30px 30px;
+  background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.75);
+  z-index: 2;
+  min-height: 30px;
+}
+
+.banner-container .profile-info .profile-name {
+  line-height: 30px;
+  font-size: 28px;
+  margin-bottom: 10px;
+  margin-right: 250px;
+  color: #FFF;
+}
+
+.banner-container .profile-info .profile-bio {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 14px;
+  line-height: 20px;
+  margin-right: 250px;
+  max-width: 640px;
+}
+
+.banner-container .profile-info .profile-bio a {
+  color: #A68ED2;
+  cursor: pointer;
+}
+
+.profile-edit-link {
+  display: inline-block;
+}
+
+.profile-edit-link svg {
+  margin-right: 5px;
+  width: 16px;
+  height: 16px;
+}
+
+.banner-container .profile-info .profile-bio 
+.profile-edit-link svg {
+  margin: 1px 5px;
+}
+
+.banner-container .profile-info .profile-bio 
+.profile-edit-link svg path {
+  fill: #FFF;
+}
+
+.profile-details {
+  position: relative;
+  padding: 30px;
+}
+
+.profile-nav .nav-list:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0px;
+  content: " ";
+  clear: both;
+  height: 0px;
+}
+
+.profile-nav .nav-list:before {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  height: 0px;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.profile-nav .nav-list {
+  position: relative;
+  list-style-type: none;
+}
+
+
+.profile-nav ul {
+  padding: 0;
+}
+
+.profile-nav .nav-list li {
+    float: left;
+    margin-right: 20px;
+    position: relative;
+    list-style-position: outside;
+}

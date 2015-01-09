@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   resources :users
 
 
-  root to: 'application#index'
-
-  match '/auth_user', to: 'application#authenticate_user', via: 'get'
+  root to: 'static_pages#home'
+  match '/browse', to: 'static_pages#browse', via: 'get'
 end
