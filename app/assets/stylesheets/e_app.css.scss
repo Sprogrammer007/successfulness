@@ -1,0 +1,121 @@
+
+/* Main App */
+
+.main-wrapper {
+  background: none repeat scroll 0% 0% #FFF;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+#main-content.opened-left{
+  margin-left: 50px;
+}
+
+/* Side-Menu-Left */
+
+#left-menu {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  width: 240px;
+  z-index: 3;
+}
+
+#left-menu:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 1px;
+  z-index: 4;
+  background: none repeat scroll 0% 0% #000;
+}
+
+#left-menu.closed {
+    width: 50px;
+}
+
+#large-nav {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  width: 240px;
+  overflow: hidden;
+}
+
+#large-nav .content {
+  width: 240px;
+  height: 100%;
+  background: none repeat scroll 0% 0% #19191F;
+}
+
+#left-menu.closed #large-nav {
+  display: none;
+}
+
+#small-nav {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 50px;
+  height: 100%;
+  overflow: hidden;
+}
+
+#small-nav .content {
+  width: 50px;
+  height: 100%;
+  background: none repeat scroll 0% 0% #19191F;
+}
+
+// Arrows
+#left-close {
+  top: 5px;
+  right: -25px;
+}
+
+#left-close, #right-close {
+  z-index: 10;
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  text-indent: -999px;
+  overflow: hidden;
+  background: none repeat scroll 0% 0% #FFF;
+}
+
+#left-close:before, #right-close:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0px;
+  height: 0px;
+  margin-top: -6px;
+  z-index: 2;
+}
+
+#left-menu.closed #left-close:before {
+  margin-left: -2px;
+  border-width: 6px;
+  border-style: solid;
+  border-left: 6px solid #000;
+  -moz-border-top-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  border-image: none;
+  border-right: 6px solid transparent;
+  border-color: transparent transparent transparent #000;
+}

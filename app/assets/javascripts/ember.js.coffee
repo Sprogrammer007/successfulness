@@ -2,6 +2,7 @@
 #= require ember-1.9.1
 #= require ember-data
 #= require_self
+#= require ember-components
 # for more details see: http://emberjs.com/guides/application/
 window.Successfulness = Ember.Application.create()
  
