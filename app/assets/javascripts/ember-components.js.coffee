@@ -1,6 +1,5 @@
 Successfulness.LeftMenuComponent = Ember.Component.extend
-  isOpen: true
   actions: {
-    toggle: -> 
-      alert("test")
+    hello: ->
+      console.log(@get('controler').currentLeftMenuStats)  
   }

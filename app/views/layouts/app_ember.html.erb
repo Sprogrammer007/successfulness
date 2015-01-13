@@ -29,10 +29,10 @@
     <script type="text/x-handlebars" data-template-name="application">
 
       <div class="main-wrapper">
-        <div id="left-menu" {{bind-attr class="isUrgent:urgent"}}>
-          {{left-menu}}
+        <div id="left-menu" {{bind-attr class="isOpen:open:closed"}}>
+          {{partial 'left-menu'}}
         </div>
-        <div id="main-content" class="opened-left">
+        <div id="main-content" {{bind-attr class="isOpen::extended"}}>
           <%= yield %>
         </div>
         <div id="right-menu">
@@ -41,7 +41,7 @@
       </div>
     </script>
 
-    <script type="text/x-handlebars" data-template-name="components/left-menu">
+    <script type="text/x-handlebars" data-template-name="_left-menu">
       <%= render 'layouts/side_nav' %>
     </script>
   </body>
