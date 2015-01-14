@@ -1,5 +1,5 @@
 Successfulness.ApplicationController = Ember.Controller.extend
-  leftNavState: false,
+  leftNavState: true,
   isOpen: Ember.computed.alias('leftNavState'),
   actions: {
     toggle: -> 
