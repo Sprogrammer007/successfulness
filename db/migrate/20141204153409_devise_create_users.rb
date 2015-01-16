@@ -2,7 +2,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
   def migrate(direction)
     super
     # Create a default user
-    Admin.create!(email: 'stevenag006@hotmail.com', password: 'qwerty007', password_confirmation: 'qwerty007') if direction == :up
+    Admin.create!(username: 'steve007', email: 'stevenag006@hotmail.com', password: 'qwerty007', password_confirmation: 'qwerty007') if direction == :up
   end
 
   def change
@@ -37,15 +37,20 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.datetime :locked_at
 
       # Custom
+      t.references :group
+      t.string :username, :null => false, :default => ""
+      t.string :type
+      t.attachment :display_image
       t.text :profile
       t.text :media_access
       t.text :events_access
-      t.references :group
+      
       
       t.timestamps
     end
 
     add_index :users, :email,                unique: true
+    add_index :users, :username,                unique: true
     add_index :users, :reset_password_token, unique: true
     add_index :users, :confirmation_token,   unique: true
     add_index :users, :unlock_token,         unique: true

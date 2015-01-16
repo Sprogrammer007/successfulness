@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
- 
   devise_for( :users,
               :skip => [:registrations], 
               :controllers  => { :registrations => "registrations", :sessions => "sessions" },
@@ -11,8 +10,12 @@ Rails.application.routes.draw do
   devise_for :admins, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  resources :users, path: '/', except: [:index] 
+  resources :users, path: '/', except: [:index] do
+    member do
+      get 'settings'
+      post 'update_settings'
+    end
+  end
 
   root to: 'static_pages#home'
-  match '/browse', to: 'static_pages#browse', via: 'get'
 end

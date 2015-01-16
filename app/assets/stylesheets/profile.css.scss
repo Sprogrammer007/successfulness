@@ -152,8 +152,25 @@
 }
 
 .profile-nav .nav-list li {
-    float: left;
-    margin-right: 20px;
-    position: relative;
-    list-style-position: outside;
+  float: left;
+  margin-right: 20px;
+  position: relative;
+  list-style-position: outside;
+}
+
+// Settings
+
+#settings {
+  padding: 30px;
+}
+
+#settings .settings-content {
+  padding: 30px 0;
+  margin-bottom: 20px;
+  background: none repeat scroll 0% 0% #F2F2F2;
+}
+
+#settings .settings-content fieldset {
+  padding: 25px 0;
+  border-bottom: 1px solid #DEDEDE;
 }

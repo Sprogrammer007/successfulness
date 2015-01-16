@@ -33,8 +33,13 @@
           {{partial 'left-menu'}}
         </div>
         <div id="main-content" {{bind-attr class="isOpen::extended"}}>
-          <%= yield %>
-          
+          <div class="tse-scrollbar">
+            <div style="top: 2px; height: 303px;" class="drag-handle">
+            </div>
+          </div>
+          <div class="tse-scrollable-content wrapper">
+            <%= yield %>
+          </div>
         </div>
         <div id="right-menu">
           
@@ -45,5 +50,6 @@
     <script type="text/x-handlebars" data-template-name="_left-menu">
       <%= render 'layouts/side_nav' %>
     </script>
+
   </body>
 </html>

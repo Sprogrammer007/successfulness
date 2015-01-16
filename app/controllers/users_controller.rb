@@ -1,13 +1,27 @@
 class UsersController < ApplicationController
-  
+  layout "app_ember"
   before_filter :authenticate_all!
 
   def show
-    @user = current_user || current_admin || User.find_by(username: params[:id])
-    render layout: "app_ember"
+    @user = find_current_user(params[:id])
+  end
+
+  def settings
+    @user = find_current_user(params[:id])
+  end
+
+  def update_settings
+    Rails.logger.warn "#{params[:user]}"
+    # @user = find_current_user(params[:id])
+    # @user.update(profile: params[:profile])
+    redirect_to :back
   end
 
   private
+
+    def find_current_user(id)
+      current_user || current_admin || User.find_by(username: id)  
+    end
 
     def authenticate_all!
       if current_admin

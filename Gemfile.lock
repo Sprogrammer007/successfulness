@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: git://github.com/activerecord-hackery/ransack.git
-  revision: c11f7bac1262326ad73c7e406aedcc1a81b93942
+  revision: 3add178bd26a73e0e18c7bed291c2ccccab08500
   specs:
     ransack (1.6.2)
       actionpack (>= 3.0)
@@ -102,6 +102,10 @@ GEM
       timers (~> 4.0.0)
     childprocess (0.5.5)
       ffi (~> 1.0, >= 1.0.11)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.5)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -215,6 +219,11 @@ GEM
       money (< 7.0.0)
       nokogiri (~> 1.4)
     orm_adapter (0.5.0)
+    paperclip (4.2.1)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.3)
+      mime-types
     pry (0.10.1-x86-mingw32)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -339,6 +348,7 @@ DEPENDENCIES
   letter_opener
   meta_request
   mysql2
+  paperclip (~> 4.2)
   polyamorous!
   puma
   quiet_assets

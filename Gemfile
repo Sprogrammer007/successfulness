@@ -8,6 +8,7 @@ gem 'polyamorous', github: 'activerecord-hackery/polyamorous'
 gem 'ransack',     github: 'activerecord-hackery/ransack'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
+gem "paperclip", "~> 4.2"
 # Use MySQL as the database for Active Record
 gem 'mysql2'
 # Use SCSS for stylesheets

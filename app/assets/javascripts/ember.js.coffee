@@ -7,3 +7,8 @@
 # for more details see: http://emberjs.com/guides/application/
 window.Successfulness = Ember.Application.create()
  
+ready = ->
+
+
+$(document).ready(ready)
+$(document).on('page:load', ready)

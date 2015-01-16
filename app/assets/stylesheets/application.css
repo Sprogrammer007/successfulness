@@ -11,8 +11,8 @@
  * file per style scope.
  *
  *= require normalize
+ *= require ember-master
  *= require profile
- *= require student
  *= require style
  *= require trackpad-scroll
  *= require_self

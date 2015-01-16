@@ -1,0 +1,25 @@
+.maximum-width
+  #settings
+    .settings-header
+      %h2 Settings
+
+    .settings-content.group
+      = form_tag({controller: 'users', action: "update_settings"}) do
+        %fieldset.group
+          = label_tag 'user[username]', 'Display Name', class: 'col-sm-2 control-label'
+          .col-sm-6
+            = text_field_tag 'user[username]', nil, value: @user.username, class: "form-control"
+        %fieldset.group
+          = label_tag 'user[email]', 'Email', class: 'col-sm-2 control-label' 
+          .col-sm-6
+            = text_field_tag 'user[email]', nil, value: @user.email, class: "form-control"
+        %fieldset.group
+          = label_tag 'user[profile][bio]', 'Bio', class: 'col-sm-2 control-label' 
+          .col-sm-6 
+            = text_area_tag 'user[profile][bio]', nil, value: @user.profile[:bio], class: "form-control", row: "20"
+        %fieldset.group
+          = label_tag 'user[display_image]', 'Email', class: 'col-sm-2 control-label'
+          .col-sm-6.upload
+            = text_field_tag 'user[display_image]', nil, class:"form-control"
+
+        %button.btn.btn-default{:type => "submit"} Submit

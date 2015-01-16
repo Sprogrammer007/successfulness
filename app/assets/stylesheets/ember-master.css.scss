@@ -26,6 +26,23 @@
   margin-left: 50px;
 }
 
+#main-content .maximum-width {
+ max-width: 1125px;
+}
+
+
+/* Scroller */
+
+.tse-scrollable-content {
+  width: auto !important;
+  height: auto !important;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
 /* Side-Menu-Left */
 
 #left-menu {
@@ -128,6 +145,7 @@
   overflow: hidden;
 }
 
+
 #large-nav .content {
   width: 240px;
   height: 100%;
@@ -142,6 +160,14 @@
   width: 240px;
 }
 
+.top {
+  position: absolute;
+  top: 0px;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  z-index: 1;
+}
 
 #large-nav .content .nav_section ul #you {
   width: 100%;
@@ -204,6 +230,13 @@
   border: medium none;
   font-size: 14px;
   background: rgba(255, 255, 255, 0.05);
+}
+
+#large-nav .middle {
+  top: 127px;
+  bottom: 70px;
+  position: absolute;
+  width: 100%;
 }
 
 #large-nav .content .nav_section ul #you .username {

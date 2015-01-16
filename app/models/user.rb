@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_attached_file :display_image, :default_url => "no-image.png"
+  
   validates :username, presence: true, format: { with: /\A[a-zA-Z0-9]+\Z/ },
     uniqueness: { case_sensitive: false }
 
