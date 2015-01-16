@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 # ruby '2.1.1'
 # ruby-gemset=successfulness
 
+
+gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'polyamorous', github: 'activerecord-hackery/polyamorous'
+gem 'ransack',     github: 'activerecord-hackery/ransack'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 # Use MySQL as the database for Active Record

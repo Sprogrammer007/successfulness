@@ -7,9 +7,9 @@
       .live-status Offline
     .profile-info
       %h3.profile-name
-        = current_user.email
+        = @user.username
       %p.profile-bio
-        - if current_user.profile
+        - if @user.profile
           " "
         - else
           %em This uer has no bio.
@@ -21,8 +21,8 @@
     .profile-nav
       %ul.nav-list
         %li.is-active.list-item.nav-item
-          %a.nav-item-link.list-item-link{:href => "/account"} Dashboard
+          = link_to 'Courses' , "#", class: "nav-item-link list-item-link"
         %li.nav-item.list-item
-          %a.nav-item-link.list-item-link{:href => "/account/transactions"} History
+          = link_to 'History' , "#", class: "nav-item-link list-item-link"
         %li.nav-item.list-item
-          %a.nav-item-link.list-item-link{:href => "/account/prizes"} Rewards
+          = link_to 'Rewards' , "#", class: "nav-item-link list-item-link"

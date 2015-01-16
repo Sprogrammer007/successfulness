@@ -1,4 +1,5 @@
 Successfulness.ApplicationController = Ember.Controller.extend
+  userName: 6,
   leftNavState: true,
   isOpen: Ember.computed.alias('leftNavState'),
   actions: {
