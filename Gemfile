@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-# ruby '2.1.1'
+ruby '2.1.1'
 # ruby-gemset=successfulness
 
 
@@ -10,7 +10,7 @@ gem 'ransack',     github: 'activerecord-hackery/ransack'
 gem 'rails', '4.1.8'
 gem "paperclip", "~> 4.2"
 # Use MySQL as the database for Active Record
-gem 'mysql2'
+gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'

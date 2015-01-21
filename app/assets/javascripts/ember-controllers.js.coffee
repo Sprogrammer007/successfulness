@@ -9,3 +9,27 @@ Successfulness.ApplicationController = Ember.Controller.extend
       else
         @set('leftNavState', true)
   }
+
+Successfulness.ApplicationRoute = Ember.Route.extend
+  actions:
+    openModal: (modalName, content) ->
+      @controllerFor(modalName).set('content', content)
+      @render modalName,
+        into: "application"
+        outlet: "modal"
+
+    closeModal: ->
+      @disconnectOutlet
+        outlet: "modal"
+        parentView: "application"
+
+Successfulness.ModalController = Ember.ObjectController.extend
+  content: '',
+  actions:
+    close: ->
+      @send "closeModal"
+
+Successfulness.ModalDialogComponent = Ember.Component.extend
+  actions:
+    close: ->
+      @sendAction()

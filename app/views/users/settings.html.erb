@@ -20,7 +20,7 @@
         <fieldset class="group">
           <%= label_tag 'user[profile][bio]', 'Bio', class: 'col-sm-2 control-label'  %>
           <div class="col-sm-6">
-            <%= text_area_tag 'user[profile][bio]', nil, value: (@user.profile[:bio] || ""), class: "form-control", row: "20" %>
+            <%= text_area_tag 'user[profile][bio]', nil, value: (@user.profile[:bio] if @user.profile), class: "form-control", row: "20" %>
           </div>
         </fieldset>
         <fieldset class="group">

@@ -15,7 +15,7 @@
         <%= f.label :password, class: "form-label" %>
         <% if @validatable %>
           <i>
-            (#{@minimum_password_length} characters minimum)
+            <%= "(#{@minimum_password_length} characters minimum)" %>
           </i>
         <% end %>
         <%= f.password_field :password, autocomplete: "off", class: "form-input" %>

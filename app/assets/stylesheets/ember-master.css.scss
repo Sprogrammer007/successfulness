@@ -393,3 +393,20 @@ a:not(.button) .filter_icon {
   border-left: 6px solid transparent;
   border-color: transparent #000 transparent transparent;
 }
+
+/* Modal */
+
+.modal-dialog {
+  z-index: 10;
+}
+
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}

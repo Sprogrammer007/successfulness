@@ -27,17 +27,20 @@
 
   <body>
     <script type="text/x-handlebars" data-template-name="application">
-
+      {{outlet 'modal'}}
       <div class="main-wrapper">
         <div id="left-menu" {{bind-attr class="isOpen:open:closed"}}>
           {{partial 'left-menu'}}
         </div>
         <div id="main-content" {{bind-attr class="isOpen::extended"}}>
+
           <div class="tse-scrollbar">
             <div style="top: 2px; height: 303px;" class="drag-handle">
             </div>
           </div>
           <div class="tse-scrollable-content wrapper">
+          
+                <button {{action 'openModal' 'modal' "testing content"}}>Change Name</button>
             <%= yield %>
           </div>
         </div>
@@ -50,6 +53,16 @@
     <script type="text/x-handlebars" data-template-name="_left-menu">
       <%= render 'layouts/side_nav' %>
     </script>
+
+
+    <%= render 'shared/modal' %>
+
+    <script type="text/x-handlebars" data-template-name="modal">
+      {{#modal-dialog action="close"}}
+        <p>{{content}}</p>
+      {{/modal-dialog}}
+    </script>
+
 
   </body>
 </html>
