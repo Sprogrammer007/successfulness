@@ -1,19 +1,19 @@
 Successfulness.ApplicationController = Ember.Controller.extend
-  userName: 6,
   leftNavState: true,
   isOpen: Ember.computed.alias('leftNavState'),
   actions: {
-    toggle: -> 
-      if @get('leftNavState')
-        @set('leftNavState', false)
-      else
-        @set('leftNavState', true)
+    close: ->
+      @set('leftNavState', false)
+    
+    open: ->
+      @set('leftNavState', true)
   }
 
 Successfulness.ApplicationRoute = Ember.Route.extend
   actions:
-    openModal: (modalName, content) ->
+    openModal: (modalName, title, content) ->
       @controllerFor(modalName).set('content', content)
+      @controllerFor(modalName).set('title', title)
       @render modalName,
         into: "application"
         outlet: "modal"
@@ -25,6 +25,7 @@ Successfulness.ApplicationRoute = Ember.Route.extend
 
 Successfulness.ModalController = Ember.ObjectController.extend
   content: '',
+  title: '',
   actions:
     close: ->
       @send "closeModal"

@@ -2,26 +2,21 @@ source 'https://rubygems.org'
 ruby '2.1.1'
 # ruby-gemset=successfulness
 
-
-gem 'activeadmin', github: 'gregbell/active_admin'
-gem 'polyamorous', github: 'activerecord-hackery/polyamorous'
-gem 'ransack',     github: 'activerecord-hackery/ransack'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 gem "paperclip", "~> 4.2"
 # Use MySQL as the database for Active Record
 gem 'pg'
+# gem 'mysql2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
-gem 'haml'
 # Bootstrap 3
 gem 'bootstrap-sass', '~> 3.1.1'
 # For Payment Gateway in future
 gem 'activemerchant'
 # Account Manager
-gem 'devise'
 gem 'puma'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -36,7 +31,7 @@ group :development do
   # gem 'rspec-rails', '2.14.0'
   gem 'guard-rspec', '4.2.0'
   gem 'letter_opener' # serve as local email
-  gem 'debugger'
+  gem 'byebug'
   gem 'quiet_assets' # Quiet Assets turns off the Rails asset pipeline log.
   gem "better_errors" # Handles errors
   gem "binding_of_caller" # optional plusing for better errors
