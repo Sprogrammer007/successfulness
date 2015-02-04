@@ -9,14 +9,11 @@
     </a>
     <div class="profile-info">
       <h3 class="profile-name">
-        <%= @user.username %>
+        Username
       </h3>
       <p class="profile-bio">
-        <% if @user.profile %>
-        <!-- TODO Profile Bio -->
-        <% else %>
-          <em>This uer has no bio.</em>
-        <% end %>
+        
+        <em>This uer has no bio.</em>
         <a {{action 'openModal' 'modal' "Update Your Profile" "Update Bio"}} class="profile-edit-link">
           <svg class="svg-edit" height="16px" version="1.1" viewBox="0 0 16 16" width="16px" x="0px" y="0px">
             <path clip-rule="evenodd" d="M6.414,12.414L3.586,9.586l8-8l2.828,2.828L6.414,12.414z M4.829,14H2l0,0v-2.828l0.586-0.586l2.828,2.828L4.829,14z" fill-rule="evenodd"></path>

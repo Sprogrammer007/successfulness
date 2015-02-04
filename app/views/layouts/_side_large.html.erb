@@ -23,14 +23,14 @@
                   <span class="username">
                     {{user}}
                   </span>
-                  <%= link_to (current_admin ? destroy_admin_session_path : destroy_user_session_path), class: "logout", method: "delete" do %>
+                  <%= link_to "#", class: "logout", method: "delete" do %>
        
                     <svg class="svg-nav_logout" height="18px" version="1.1" viewBox="0 0 18 18" width="18px" x="0px" y="0px">
                       <path clip-rule="evenodd" d="M16,9l-6,6v-4H6V7h4V3L16,9z M4,13h4v2H2v-2V5V3h6v2H4V13z" fill-rule="evenodd"></path>
                     </svg>
                   <% end -%>
 
-                   <%= link_to settings_user_path(current_user!), class: "settings" do %>
+                   <%= link_to "#", class: "settings" do %>
                     <svg class="svg-nav_settings" height="18px" version="1.1" viewBox="0 0 18 18" width="18px" x="0px" y="0px">
                       <path clip-rule="evenodd" d="M15.03,5.091v4.878l-2,2H8.151l-3.061,3.061L2.97,12.908l3.061-3.06V4.97l2-2h4.879L8.97,6.909l2.121,2.121L15.03,5.091z" fill-rule="evenodd"></path>
                     </svg>

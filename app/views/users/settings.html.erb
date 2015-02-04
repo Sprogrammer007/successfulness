@@ -8,19 +8,19 @@
         <fieldset class="group">
           <%= label_tag 'user[username]', 'Display Name', class: 'col-sm-2 control-label' %>
           <div class="col-sm-6">
-            <%= text_field_tag 'user[username]', nil, value: @user.username, class: "form-control" %>
+            <%= text_field_tag 'user[username]', nil, value: 'username', class: "form-control" %>
           </div>
         </fieldset>
         <fieldset class="group">
           <%= label_tag 'user[email]', 'Email', class: 'col-sm-2 control-label'  %>
           <div class="col-sm-6">
-            <%= text_field_tag 'user[email]', nil, value: @user.email, class: "form-control" %>
+            <%= text_field_tag 'user[email]', nil, value:'email', class: "form-control" %>
           </div>
         </fieldset>
         <fieldset class="group">
           <%= label_tag 'user[profile][bio]', 'Bio', class: 'col-sm-2 control-label'  %>
           <div class="col-sm-6">
-            <%= text_area_tag 'user[profile][bio]', nil, value: (@user.profile[:bio] if @user.profile), class: "form-control", row: "20" %>
+            <%= text_area_tag 'user[profile][bio]', nil, value: 'profile', class: "form-control", row: "20" %>
           </div>
         </fieldset>
         <fieldset class="group">

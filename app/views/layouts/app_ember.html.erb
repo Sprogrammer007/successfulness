@@ -30,7 +30,7 @@
       {{outlet 'modal'}}
       <div class="main-wrapper">
         <div id="left-menu" {{bind-attr class="isOpen:open:closed"}}>
-          {{left-menu user="<%= @user.username %>" open="open" close="close" isOpen=isOpen }}
+          {{left-menu user="username" open="open" close="close" isOpen=isOpen }}
         </div>
         <div id="main-content" {{bind-attr class="isOpen::extended"}}>
 
