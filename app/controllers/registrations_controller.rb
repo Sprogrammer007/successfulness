@@ -2,13 +2,11 @@ class RegistrationsController < ApplicationController
 
   def new
     @resource = resource.new()
-  
     @minimum_password_length = 8
   end
 
   def create
-    Rails.logger.warn "#{params}"
-    @user = resource.new(safe_params)
+    @user = resource.new(safe_params).assign_group
     if @user.save
       redirect_to root_path
     end
