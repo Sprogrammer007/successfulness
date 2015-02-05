@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :student, :controller => "registrations", :type => "Student", only: [:new, :create]
   resources :teacher, :controller => "registrations", :type => "Teacher",  only: [:new, :create]
 
-  resources :users, path: '/', except: [:index, :new, :create] do
+  resources :users, path: '/', except: [:index, :new, :create, :destroy] do
     member do
       get 'settings'
       post 'update_settings'
