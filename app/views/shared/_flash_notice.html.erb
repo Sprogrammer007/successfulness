@@ -1,6 +1,6 @@
 <% flash.each do |k, v| %>
   <% next if v == true %>
-  <div class="alert-<%= bs_alert_helper(k) %> alert primary-alert">
+  <div class="alert-<%= "#{k}" %> alert primary-alert">
     <%= v %>
     <button class="primary-close" data-dismiss="alert" type="button">
       <span aria-hidden="true">&times;</span>

@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   validates :username, presence: true, format: { with: /\A[a-zA-Z0-9]+\Z/ },
     uniqueness: { case_sensitive: false }
 
+  has_secure_password
   
   # Overwrite to_params
   def to_param

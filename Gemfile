@@ -26,6 +26,11 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 
+# To use ActieModel has_secure_password
+gem 'bcrypt-ruby'
+# Authenication
+gem 'warden'
+
 group :development do
   gem 'faker', '1.2.0'
   # gem 'rspec-rails', '2.14.0'
