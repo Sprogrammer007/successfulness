@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :media
+  resources :medias
 
   root to: 'static_pages#home'
 end

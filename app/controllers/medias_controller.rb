@@ -1,3 +1,8 @@
 class MediasController < ApplicationController
-  respond_to :json
+
+  layout "app_ember"
+
+  def new
+    Rails.logger.warn "test"
+  end
 end
