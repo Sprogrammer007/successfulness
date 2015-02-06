@@ -9,7 +9,9 @@
     </a>
     <div class="profile-info">
       <h3 class="profile-name">
-        Username
+        <% if user_signed_in? %>
+          <%= @user.username %>
+        <% end %>
       </h3>
       <p class="profile-bio">
         

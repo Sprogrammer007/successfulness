@@ -15,8 +15,7 @@
     <div class="mts mbs align-center">
       <%= submit_tag "Log in", class: "btn btn-submit" %>
       <p class="mtt tcg ts-m">
-        Don't have an account?
-        \#{link_to "Create Free Account", new_student_path}
+        Don't have an account? <%= link_to 'Create Free Account', new_student_path %>
       </p>
     </div>
   <% end %>

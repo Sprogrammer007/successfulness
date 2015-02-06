@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
 
   def show
-   
+   @user = User.find_by_username(params[:id])
   end
 
   def settings
@@ -11,9 +11,8 @@ class UsersController < ApplicationController
   end
 
   def update_settings
-    Rails.logger.warn "#{params[:user]}"
-    # @user = find_current_user(params[:id])
-    # @user.update(profile: params[:profile])
+    @user = User.find_by_username(params[:id])
+    @user.update(profile: params[:profile])
     redirect_to :back
   end
 

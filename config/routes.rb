@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   resources :student, path_names: {:new => 'sign_up'}, :controller => "registrations", :type => "Student", only: [:new, :create]
   resources :teacher, :controller => "registrations", :type => "Teacher",  only: [:new, :create]
 
-
   scope constraints: lambda { |r| r.env['warden'].user.nil? } do
     match "/login", to: "sessions#new", via: :get, as: "login"
   end
