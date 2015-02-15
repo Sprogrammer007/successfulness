@@ -1,5 +1,5 @@
 <% flash.each do |k, v| %>
-  <% next if v == true %>
+  <% Rails.logger.warn "#{flash}" %>
   <div class="alert-success alert alert-dismissible">
     <%= v %>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>

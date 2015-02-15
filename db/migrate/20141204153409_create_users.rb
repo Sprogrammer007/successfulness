@@ -29,7 +29,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :type
       t.attachment :display_image
       t.text :profile
-      t.text :media_access
+      t.text :courses_access
       t.text :events_access
       
       
@@ -37,7 +37,7 @@ class CreateUsers < ActiveRecord::Migration
     end
 
     add_index :users, :email,                unique: true
-    add_index :users, :username,                unique: true
+    add_index :users, :username,             unique: true
     add_index :users, :reset_password_token, unique: true
     add_index :users, :confirmation_token,   unique: true
   end

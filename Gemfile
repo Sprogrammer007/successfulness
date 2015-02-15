@@ -29,16 +29,21 @@ gem 'puma'
 gem 'jquery-rails'
 gem 'jquery-ui-rails', '~> 5.0.0'
 
+# CK Editor
+gem 'ckeditor', github: 'galetahub/ckeditor'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 
 # To use ActieModel has_secure_password
-gem 'bcrypt-ruby'
+gem 'bcrypt'
 # Authenication
 gem 'warden'
+
+# Testing out Mercurary
+
 
 group :development do
   gem 'faker', '1.2.0'

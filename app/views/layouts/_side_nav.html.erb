@@ -1,19 +1,13 @@
-
+  
 <script type="text/x-handlebars" data-template-name="components/left-toggle-button">
   <a id="left-close">
     <span>Show/Hide</span>
   </a>
 
-
 </script>
-
 
 <script type="text/x-handlebars" data-template-name="components/left-menu">
   {{left-toggle-button action="toggle"}}
-
   <%= render 'layouts/side_large' %>
-
   <%= render 'layouts/side_small' %>
-
 </script>
-

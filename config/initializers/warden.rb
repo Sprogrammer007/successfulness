@@ -1,6 +1,9 @@
-Rails.application.config.middleware.use Warden::Manager do |manager|
-  manager.default_strategies :password
-  manager.failure_app = lambda { |env| SessionsController.action(:new).call(env) }
+Rails.application.config.middleware.use Warden::Manager do |config|
+  config.failure_app = lambda { |env| SessionsController.action(:new).call(env) }
+  config.default_scope = :user
+
+  config.scope_defaults :user,           :strategies => [:membership]
+
 end
 
 Warden::Manager.serialize_into_session do |user|
@@ -8,15 +11,16 @@ Warden::Manager.serialize_into_session do |user|
 end
 
 Warden::Manager.serialize_from_session do |id|
-  User.find(id)
+  User.find_by_id(id)
 end
 
-Warden::Strategies.add(:password) do
+Warden::Strategies.add(:membership) do
+
   def valid?
     params['login'] && params['password']
   end
   
-  def authenticate!
+  def authenticate!    
     user = User.find_by_email(params['login']) || User.find_by_username(params['login'])
     if user && user.authenticate(params['password'])
       success! user
@@ -25,4 +29,6 @@ Warden::Strategies.add(:password) do
     end
   end
 end
+
+
 

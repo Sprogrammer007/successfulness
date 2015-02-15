@@ -1,0 +1,14 @@
+
+<script type="text/x-handlebars" data-template-name="components/right-toggle-button">
+  <a id="right-close" {{bind-attr class="isOpen:open:closed"}}>
+    <span>Show/Hide</span>
+  </a>
+
+</script>
+
+
+<script type="text/x-handlebars" data-template-name="components/right-menu">
+  {{right-toggle-button action="toggle" isOpen=isOpen}}
+
+</script>
+

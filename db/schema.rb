@@ -11,10 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150105213312) do
+ActiveRecord::Schema.define(version: 20150212053226) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "courses", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "course_category_id"
+    t.string   "title"
+    t.text     "description"
+    t.text     "note"
+    t.string   "course_type"
+    t.decimal  "price"
+    t.string   "charge_method"
+    t.boolean  "student_limit"
+    t.integer  "max_student"
+    t.integer  "discount"
+    t.string   "thumbnail_file_name"
+    t.string   "thumbnail_content_type"
+    t.integer  "thumbnail_file_size"
+    t.datetime "thumbnail_updated_at"
+    t.string   "prerequisites"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "courses", ["course_type"], name: "index_courses_on_course_type", using: :btree
+  add_index "courses", ["title"], name: "index_courses_on_title", unique: true, using: :btree
 
   create_table "events", force: true do |t|
     t.string   "type"
@@ -30,15 +56,31 @@ ActiveRecord::Schema.define(version: 20150105213312) do
     t.text   "description"
   end
 
-  create_table "media", force: true do |t|
-    t.string   "url"
-    t.string   "type"
-    t.string   "teachers"
+  create_table "page_templates", force: true do |t|
+    t.string   "name"
+    t.string   "descriptions"
+    t.string   "category"
+    t.string   "thumbnail_file_name"
+    t.string   "thumbnail_content_type"
+    t.integer  "thumbnail_file_size"
+    t.datetime "thumbnail_updated_at"
+  end
+
+  add_index "page_templates", ["category"], name: "index_page_templates_on_category", using: :btree
+
+  create_table "sections", force: true do |t|
+    t.string   "collaborators"
     t.string   "title"
-    t.text     "description"
+    t.string   "note"
+    t.string   "section_type"
+    t.integer  "course_id"
+    t.integer  "user_id"
+    t.integer  "page_template_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "sections", ["section_type"], name: "index_sections_on_section_type", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                      default: "", null: false
@@ -62,7 +104,7 @@ ActiveRecord::Schema.define(version: 20150105213312) do
     t.integer  "display_image_file_size"
     t.datetime "display_image_updated_at"
     t.text     "profile"
-    t.text     "media_access"
+    t.text     "courses_access"
     t.text     "events_access"
     t.datetime "created_at"
     t.datetime "updated_at"

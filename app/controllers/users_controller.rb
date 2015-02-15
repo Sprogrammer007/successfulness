@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
+  
   layout "app_ember"
-
+  before_filter :authenticate_user!
 
   def show
    @user = User.find_by_username(params[:id])
@@ -8,6 +9,9 @@ class UsersController < ApplicationController
 
   def settings
 
+  end
+
+  def dashboard
   end
 
   def update_settings

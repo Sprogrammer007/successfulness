@@ -1,0 +1,23 @@
+<%= form_for PageTemplate.new do |f| %>
+    <fieldset class="form-field mbs">
+      <%= f.label :name, class: "form-label" %>
+      <%= f.text_field :name, autofocus: true, class: "form-input" %>
+    </fieldset>
+   
+    <fieldset class="form-field mbs">
+      <%= f.label :descriptions, class: "form-label" %>
+      <%= f.cktext_area :descriptions, class: "form-input" %>
+    </fieldset>
+    <fieldset class="form-field mbs">
+      <%= f.label :category, class: "form-label" %>
+      <%= f.select :category, options_for_select(PageTemplate.categories),class: "form-input" %>
+    </fieldset>    
+    <fieldset class="form-field mbs">
+      <%= f.label :thumbnail, class: "form-label" %>
+      <%= f.file_field :thumbnail, class: "form-input" %>
+    </fieldset>
+    <div>
+      <%= f.submit "Create", class: "btn btn-submit" %>
+    </div>
+<% end %>
+

@@ -1,12 +1,12 @@
 class SessionsController < ApplicationController
 
   def new
-    flash.now.alert = warden.message if warden.message.present?
+    flash.now[:alert] = warden.message if warden.message.present?  
   end
 
   def create
-    warden.authenticate!
-    redirect_to root_url, notice: "Logged in!"
+    warden.authenticate!(scope: :user)
+    redirect_to dashboard_user_path(current_user), notice: "Logged in!"
   end
 
   def destroy
@@ -14,4 +14,9 @@ class SessionsController < ApplicationController
     redirect_to root_url, notice: "Logged out!"
   end
 
+  protected
+
+    def i18n_scope
+      'sessions'
+    end
 end

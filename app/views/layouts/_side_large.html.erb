@@ -60,6 +60,31 @@
                   <span style="display: none;" class="total_count js-unread_message_count"></span>
                 </a>
               </li>
+
+              <li>
+                <a href="/messages/inbox" id="large_messages">
+                  <span class="filter_icon">
+              
+                  </span>
+                  <span class="title">Students</span>
+                  <span style="display: none;" class="total_count js-unread_message_count"></span>
+                </a>
+              </li>
+
+              <li>
+                <%= link_to courses_path() do %>
+                  <span class="filter_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
+                      <path d="M288.117,144.635l121.355-40.716l101.792,303.392l-121.355,40.717L288.117,144.635z M0,448h128V96H0V448z M32,160h64v32H32
+                      V160z M160,448h128V96H160V448z M192,160h64v32h-64V160z"/>
+                    </svg>
+
+                  </span>
+                  <span class="title">Courses</span>
+                  <span style="display: none;" class="total_count js-unread_message_count"></span>
+                <% end %>
+              </li>
+
             </ul>
             <div class="nav-divider"></div>
           </div>

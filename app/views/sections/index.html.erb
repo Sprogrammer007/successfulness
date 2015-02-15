@@ -1,0 +1,13 @@
+<% if @sections.any? %>
+  <% @sections.each do |section| %>
+  <div class="media-item">
+    <%= image_tag section.page_template.thumbnail.url() %>
+    <%= section.title %>
+  </div>
+  <% end %>
+<% else %>
+  <div class="no-content">
+    You Don't Have Any Course Sections, <%= link_to("Start a New One Now", new_section_path()) %>
+  </div>
+
+<% end %>

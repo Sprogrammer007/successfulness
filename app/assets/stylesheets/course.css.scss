@@ -1,0 +1,79 @@
+/* Courses Style */
+
+.course-item {
+
+}
+
+.course.add-course {
+  border: 2px dashed #A8A8A8;
+  padding: 5px;
+  text-align: center;
+  background: -moz-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%, rgba(168,168,168,0.65) 100%); /* FF3.6+ */
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(168,168,168,0.65))); /* Chrome,Safari4+ */
+  background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%,rgba(168,168,168,0.65) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%,rgba(168,168,168,0.65) 100%); /* Opera 12+ */
+  background: -ms-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%,rgba(168,168,168,0.65) 100%); /* IE10+ */
+  background: radial-gradient(ellipse at center,  rgba(0,0,0,0) 0%,rgba(168,168,168,0.65) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6a8a8a8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.course a {
+  color: #606060;
+  text-decoration: none; 
+}
+
+.add-course:hover  {
+  cursor: pointer;
+  border-color:  #f47618;
+}
+
+.add-course:hover a, .add-course:hover a div > svg {
+  color: #f47618;
+  text-decoration: none;
+  fill: #f47618
+}
+
+.course a svg {
+  display: block;
+  margin: auto;
+  width: 60px;
+  fill: #606060
+}
+
+/* New Course */
+
+#course form {
+  width: 800px;
+}
+
+#course .btn, #course h2 {
+  color: #FFF;
+  background-color: #3E3D3E; 
+}
+
+#course h2 {
+  padding: 0 10px;
+}
+
+#course .btn {
+  border-color: #6E6E6E;
+}
+
+#course .btn:hover {
+  background-color: #1f1f1f; 
+  color: #f47618;
+}
+
+#course section {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+#course select {
+  background-color: transparent;
+  -webkit-appearance: none;
+}
+
+#ck-textarea1 {
+  height: 246px;
+}
