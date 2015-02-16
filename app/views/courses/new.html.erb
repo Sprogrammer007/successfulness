@@ -2,7 +2,7 @@
   <%= form_for @course, url: { action: 'create' }, html:{ id: "", class: "" } do |f| %>
       <section class="clearfix">
         <h6>Create Your Course</h6>
-        <div class="" style="width: 200px; float: left; margin-right: 20px;">
+        <div class="course-thumb">
           <%= image_tag("image_placeholder.png") %>
           <div class="btn-group btn-group-justified" role="group" aria-label="...">
             <div class="btn-group" role="group">
@@ -40,84 +40,81 @@
         <h6>Course Details</h6>
 
         <div class="course-date clearfix mbs">
-          <fieldset class="start-day">
-            <label>Course Start Day</label>
-            <div class='form-inline'>
-              <div class="input-group">
-                <%= f.text_field :start_date, class: "form-control" %>
-                <div class="input-group-addon">
-                  <i class="fa fa-calendar"></i>
+          <div class="row">
+            <span class="title col-lg-6">Course Start Day</span>
+            <span class="title col-lg-6">Course End Day</span>
+          </div>
+          <fieldset class='row'>
+            <div class="start-date col-lg-4">
+              <%= f.text_field :start_date, class: "form-control" %>
+              <i class="fa fa-calendar"></i>
 
-                </div>
-              </div> 
-              <div class="input-group">
-                <%= f.text_field :start_time, class: "form-control" %>
-                <div class="input-group-addon">
-                  <i class="fa fa-clock-o"></i>
-                </div>
-              </div> 
-            <div>
-          </fieldset>  
-          <fieldset class="end-day">
-            <label>Course End Day</label>
-            <div class='form-inline'>
-              <div class="input-group">
-                <%= f.text_field :end_date, class: "form-control" %>
-                <div class="input-group-addon">
-                  <i class="fa fa-calendar"></i>
-
-                </div>
-              </div> 
-              <div class="input-group">
-                <%= f.text_field :end_time, class: "form-control" %>
-                <div class="input-group-addon">
-                  <i class="fa fa-clock-o"></i>
-                </div>
-              </div> 
-            </div>
+            </div> 
+            <div class="start-time col-lg-2">
+              <%= f.text_field :start_time, class: "form-control" %>
+              <i class="fa fa-clock-o"></i>
+            </div> 
+            <div class="end-date col-lg-4">
+              <%= f.text_field :end_date, class: "form-control" %>
+              <i class="fa fa-calendar"></i>
+            </div> 
+            <div class="end-time col-lg-2">
+              <%= f.text_field :end_time, class: "form-control" %>
+              <i class="fa fa-clock-o"></i>
+            </div> 
           </fieldset>
+    
         </div>
 
         <div class="course-prereq mbs">
           <span class="title">Course Prerequisites</span>
           <fieldset class="form-group">
             <%= f.check_box :prerequisites %>
-            <%= f.label :prerequisites  %>
+            <%= f.label :prerequisites, "None"  %>
           </fieldset>
         </div>
 
-        <div class="course-type">
-          <span class="title">Course Type</span>
-          <fieldset class="form-group">
-            <%= f.select(:course_type, options_for_select(PageTemplate.categories), { :include_blank => 'Please Select a Course Type' }, { class: "form-control" }) %>
-          </fieldset>
+        <div class="row">
+          <span class="title col-lg-7">Course Type</span>
+          <span class="title col-lg-2">Student Limit</span>
+          <span class="title col-lg-2">Max Student</span>
         </div>
 
-        <div class="course-student">
-          <span class="title">Course Student Limit</span>
-          <fieldset class="form-group">
+        <div class="row">
+          <fieldset class="form-group col-lg-7">
+            <%= f.select(:course_type, options_for_select(Course::CourseType), { :include_blank => 'Please Select a Course Type' }, { class: "form-control" }) %>
+          </fieldset>
+   
+          <fieldset class="form-group course-student col-lg-2">
             <%= f.radio_button :prerequisites, 'yes' %>
             <%= f.label :prerequisites_yes, 'Yes'  %> 
             <%= f.radio_button :prerequisites, 'no', checked: true   %>
             <%= f.label :prerequisites_no, 'No' %>
           </fieldset>
-          <fieldset  class="form-group">
-            <%= f.text_field :max_student, class: "form-control", placeholder: "Max Students" %>
+          <fieldset  class="form-group col-lg-3">
+            <%= f.text_field :max_student, class: "form-control" %>
           </fieldset>
         </div>
       </section>
 
-      <section class="form-inline">
+      <section>
         <h6>Course Pricing</h6>
-            <fieldset  class="form-group">
-            <%= f.text_field :price, class: "form-control", placeholder: "Max Students" %>
+         <div class="row">
+          <span class="title col-lg-4">Course Price</span>
+          <span class="title col-lg-4">Payment Method</span>
+          <span class="title col-lg-4">Dicsount</span>
+        </div>
+        <div class="row">
+          <fieldset  class="form-group col-lg-4">
+            <%= f.text_field :price, class: "form-control" %>
           </fieldset>
-         <fieldset class="form-group">
-            <%= f.select(:charge_method, options_for_select(PageTemplate.categories), { :include_blank => 'Please Select a Course Type' }, { class: "form-control" }) %>
+          <fieldset class="form-group col-lg-4">
+            <%= f.select(:charge_method, options_for_select(Course::PaymentMethods), {}, { class: "form-control" }) %>
           </fieldset>
-               <fieldset class="form-group">
-            <%= f.select(:discount, options_for_select(PageTemplate.categories), { :include_blank => 'Please Select a Course Type' }, { class: "form-control" }) %>
+          <fieldset class="form-group col-lg-4">
+            <%= f.select(:discount, options_for_select(Course::Discount), {}, { class: "form-control" }) %>
           </fieldset>
+        </div>
       </section>
 
       <button class="btn btn-default" type="submit">Create Course</button>

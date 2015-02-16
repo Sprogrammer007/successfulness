@@ -7,8 +7,8 @@ gem 'rails', '4.1.8'
 gem "paperclip", "~> 4.2"
 
 # Use MySQL as the database for Active Record
-gem 'pg'
-# gem 'mysql2'
+# gem 'pg'
+gem 'mysql2'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
