@@ -95,6 +95,11 @@
             <%= f.text_field :max_student, class: "form-control" %>
           </fieldset>
         </div>
+
+        <fieldset class="form-group">
+          <%= f.label :note, "Additional Notes (Only For You)"  %>
+          <%= f.text_area :note, class: "form-control", placeholder: "Less then 300 characters" %>
+        </fieldset>
       </section>
 
       <section>
@@ -117,6 +122,6 @@
         </div>
       </section>
 
-      <button class="btn btn-default" type="submit">Create Course</button>
+      <button class="btn btn-default pull-right" type="submit">Create Course</button>
   <% end %>
 </div>
