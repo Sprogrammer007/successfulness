@@ -86,6 +86,13 @@
           </fieldset>
         </div>
 
+        <div class="course-type">
+          <span class="title">Course Type</span>
+          <fieldset class="form-group">
+            <%= f.select(:course_type, options_for_select(PageTemplate.categories), { :include_blank => 'Please Select a Course Type' }, { class: "form-control" }) %>
+          </fieldset>
+        </div>
+
         <div class="course-student">
           <span class="title">Course Student Limit</span>
           <fieldset class="form-group">
@@ -94,15 +101,25 @@
             <%= f.radio_button :prerequisites, 'no', checked: true   %>
             <%= f.label :prerequisites_no, 'No' %>
           </fieldset>
-          <fieldset>
-            <%= f.text_field :max_student, class: "form-control", placeholder: "Enter Maximun Number of Student" %>
+          <fieldset  class="form-group">
+            <%= f.text_field :max_student, class: "form-control", placeholder: "Max Students" %>
           </fieldset>
         </div>
       </section>
 
-      <section>
+      <section class="form-inline">
         <h6>Course Pricing</h6>
+            <fieldset  class="form-group">
+            <%= f.text_field :price, class: "form-control", placeholder: "Max Students" %>
+          </fieldset>
+         <fieldset class="form-group">
+            <%= f.select(:charge_method, options_for_select(PageTemplate.categories), { :include_blank => 'Please Select a Course Type' }, { class: "form-control" }) %>
+          </fieldset>
+               <fieldset class="form-group">
+            <%= f.select(:discount, options_for_select(PageTemplate.categories), { :include_blank => 'Please Select a Course Type' }, { class: "form-control" }) %>
+          </fieldset>
       </section>
+
       <button class="btn btn-default" type="submit">Create Course</button>
   <% end %>
 </div>

@@ -1,0 +1,12 @@
+#template-wrapper {
+  width: 1070px;
+  margin: 20px auto;
+}
+
+#template-wrapper .editable-area {
+  border: 1px dotted #5ca1f3;
+}
+
+#template-wrapper .editable-area:focus {
+  border: 1px dotted #72f363;
+}

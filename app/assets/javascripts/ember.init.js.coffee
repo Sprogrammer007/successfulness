@@ -10,7 +10,5 @@
 
 ready = ->
   window.Successfulness = Ember.Application.create()
-
-
   
 $(document).ready(ready)

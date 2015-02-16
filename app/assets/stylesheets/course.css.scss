@@ -73,7 +73,6 @@
 }
 
 #course section {
-  padding-bottom: 20px;
   margin-bottom: 20px;
 }
 
@@ -85,12 +84,14 @@
   height: 265px;
 }
 
-.course-date fieldset {
-  width: 48%;  
+.course-date fieldset, 
+.course-student fieldset  {
   float: left;
 }
 
-.course-date fieldset:first-child {
+
+.course-date fieldset:first-child,
+.course-student fieldset {
   margin-right: 30px;
 }
 
@@ -104,9 +105,23 @@
   border: none;
 }
 
-.course-student label {
+.course-date .input-group-addon {
+  cursor: pointer;
+}
+
+#course .course-student label {
   text-align: center;
+  font-size: 16px;
   width: 50px;
+}
+
+.course-type, .course-student {
+  display: inline-block;
+  width: 47%;
+}
+
+.course-type {
+  margin-right: 30px;
 }
 
 .course-prereq input[type=checkbox],
@@ -120,7 +135,7 @@
 .course-student label {
   display: table-cell;
   float: left;  
-  padding: 3px 8px;
+  padding: 5px 8px;
   font-size: 14px;
   color: #9F9F9F;
   border: 1px solid #CCC;

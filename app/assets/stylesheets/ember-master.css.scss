@@ -1,5 +1,7 @@
 /* 
  *= require course
+ *= require section
+ *= require template
  */
 
 /* Main App */
@@ -21,9 +23,6 @@
   margin-right: 240px;
   z-index: 2;
   box-sizing: border-box;
-}
-
-#main-content {
   background: none repeat scroll 0% 0% #FFF;
 }
 
@@ -47,22 +46,6 @@
 }
 /* Icons */
 
-
-/* Scroller */
-
-  .tse-scrollable-content {
-    width: auto !important;
-    height: auto !important;
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-  }
-
-  #main-content .tse-scrollable-content {
-    padding: 50px;
-  }
 
 /* Left Side Menu */
 
@@ -152,11 +135,6 @@
 
   // Large Nav
 
-  #left-menu .tse-scrollable {
-    position: inherit;
-    overflow-x: hidden;
-    overflow-y: scroll;
-  }
 
   #large-nav {
     position: absolute;
@@ -445,205 +423,7 @@
     right: 5px;
   }
 
-/* Medias */
 
-  #new-media {
-    display: block;
-    margin: 50px;
-  }
-
-  #new-media .template-list {
-    position: relative;
-    padding: 10px 10px 0 10px;
-  }
-
-  #new-media h2, .template-item .name, .media-details,
-  .media-details .form-control {
-    color: #FFF;
-    background-color: #3E3D3E; 
-
-  }
-
-  #new-media h2 {
-    position: relative;
-    padding: 0 10px;
-    left: 0;
-    top: 0;
-    width: 100%;
-  }
-
-  #new-media .template-item {
-    display: inline-block;
-    width: calc(100% / 5);
-  }
-
-  .template-item .name {
-    padding: 5px 0;
-    text-align: center;
-    font-weight: 800;
-    font-style: italic;
-    -webkit-border-bottom-right-radius: 2px;
-    -webkit-border-bottom-left-radius: 2px;
-    -moz-border-radius-bottomright: 2px;
-    -moz-border-radius-bottomleft: 2px;
-    border-bottom-right-radius: 2px;
-    border-bottom-left-radius: 2px;
-  }
-
-  #new-media form {
-    border: 2px solid #222222;
-  }
-
-  #new-media form input[type=radio] {
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-  }
-
-  #new-media form label.templates {
-    margin-bottom: 0;
-    position: relative;
-    display: inline-block;
-    padding: 20px;
-    background-color: #ffffff;
-  }
-
-  #new-media form label.templates img {
-    max-width: 100%; 
-  }
-
-  #new-media form label.templates:hover .template-details {
-    cursor: pointer;
-    opacity: 1;
-    padding-top: 0px;
-    // box-shadow: 0px 0px 5px 0px #4D4D4D;
-  }
-
-  #new-media form input[type=radio]:checked + label.templates {
-    -webkit-border-top-left-radius: 2px;
-    -webkit-border-top-right-radius: 2px;
-    -moz-border-radius-topleft: 2px;
-    -moz-border-radius-topright: 2px;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-    border: 1px solid #f47618;
-    border-bottom: none;
-  }
-
-  #new-media form input[type=radio]:checked  + label + div {
-    background-color: #f47618;
-    border-top: none;
-  }
-
-  #new-media .template-details {
-    position: absolute;
-    line-height: 1.5em;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    color: #FFF;
-    background: none repeat scroll 0% 0% rgba(33, 27, 25, 0.75);
-    opacity: 0;
-    padding-top: 10px;
-    box-shadow: none;
-    transition: all 0.15s ease 0s;
-    z-index: 1;
-  }
-
-  .template-details div.description { 
-    display: block;
-    text-align: center;
-    margin: auto;
-    width: 80%;
-    border-bottom: 2px solid #F26060;
-    padding-bottom: 6px;
-    font-size: 14px;
-  }
-
-  .template-details svg {
-    display: block;
-    width: 40px;
-    height: 40px;
-    fill: #FFF;
-    margin: auto;
-  }
-
-  .media-details {
-    padding: 10px;
-  }
-
-  .media-details fieldset {
-    margin-right: 15px;
-    float: left;
-  }  
-
-  .media-details fieldset:last-child {
-    margin-right: 0;
-    float: right;
-  }
-
-  .media-details .form-control {
-    border-radius: 2px;
-    height: 2.1em;
-    font-size: 18px;
-    font-weight: 600;
-  }
-
-  .media-details .form-control::-webkit-input-placeholder {
-    color: #FFF;
-  }
-
-  .media-details .form-control:-moz-placeholder {
-    color: #FFF;
-  }
-
-  .media-details .form-control::-moz-placeholder {
-    color: #FFF;
-  }
-
-  .media-details .form-control:-ms-input-placeholder {
-    color:  #FFF;
-  }
-
-  .media-details input:focus {
-    background-color: #FFF;
-    color: #000;
-    border: 2px solid #f47618;
-    box-shadow: none;
-  }
-
-  .media-details button {
-    border: 1px solid #FFF;
-    border-radius: 2px;
-    background-color: #3E3D3E;
-    padding: 6px;
-  }
-
-  .media-details button:hover, .media-details button:hover svg {
-    background-color: #f47618;
-    fill: #FFF;
-  }
-
-  .media-details button svg{
-    vertical-align: middle;
-    width: 21px;
-    height: 21px;
-    fill: #FFF
-  }
-
-  #template-wrapper {
-    width: 1070px;
-    margin: 20px auto;
-  }
-
-  #template-wrapper .editable-area {
-    border: 1px dotted #5ca1f3;
-  }
-
-  #template-wrapper .editable-area:focus {
-    border: 1px dotted #72f363;
-  }
 
 /* Modal */
 
