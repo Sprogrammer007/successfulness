@@ -3,6 +3,7 @@ class Course < ActiveRecord::Base
   has_many :sections, dependent: :destroy
   belongs_to :user
 
+  attr_accessor :start_time, :end_time
 
   def self.course_types
     [

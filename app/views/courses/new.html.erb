@@ -1,7 +1,7 @@
 <div id="course">
   <%= form_for @course, url: { action: 'create' }, html:{ id: "", class: "" } do |f| %>
       <section class="clearfix">
-        <h2>Create Your Course</h2>
+        <h6>Create Your Course</h6>
         <div class="" style="width: 200px; float: left; margin-right: 20px;">
           <%= image_tag("image_placeholder.png") %>
           <div class="btn-group btn-group-justified" role="group" aria-label="...">
@@ -32,24 +32,76 @@
         </fieldset>
 
         <fieldset>
-          <%= f.label :description, class: "form-label" %>
-          {{#ck-textarea id="ck-textarea1" height="150px"}}
-          <%= f.text_area(:description, id: "ck-textarea1", class: "form-control", placeholder: "Enter a Course Description") %>
-          {{/ck-textarea}}
+          <%= f.text_area(:description, class: "form-control course-description", placeholder: "Enter a Course Description") %>
         </fieldset>
       </section>
 
       <section>
-        <h2>Course Details</h2>
-        <div>
-        <%= f.date_select :start_date, {}, class: "form-control" %>
+        <h6>Course Details</h6>
+
+        <div class="course-date clearfix mbs">
+          <fieldset class="start-day">
+            <label>Course Start Day</label>
+            <div class='form-inline'>
+              <div class="input-group">
+                <%= f.text_field :start_date, class: "form-control" %>
+                <div class="input-group-addon">
+                  <i class="fa fa-calendar"></i>
+
+                </div>
+              </div> 
+              <div class="input-group">
+                <%= f.text_field :start_time, class: "form-control" %>
+                <div class="input-group-addon">
+                  <i class="fa fa-clock-o"></i>
+                </div>
+              </div> 
+            <div>
+          </fieldset>  
+          <fieldset class="end-day">
+            <label>Course End Day</label>
+            <div class='form-inline'>
+              <div class="input-group">
+                <%= f.text_field :end_date, class: "form-control" %>
+                <div class="input-group-addon">
+                  <i class="fa fa-calendar"></i>
+
+                </div>
+              </div> 
+              <div class="input-group">
+                <%= f.text_field :end_time, class: "form-control" %>
+                <div class="input-group-addon">
+                  <i class="fa fa-clock-o"></i>
+                </div>
+              </div> 
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="course-prereq mbs">
+          <span class="title">Course Prerequisites</span>
+          <fieldset class="form-group">
+            <%= f.check_box :prerequisites %>
+            <%= f.label :prerequisites  %>
+          </fieldset>
+        </div>
+
+        <div class="course-student">
+          <span class="title">Course Student Limit</span>
+          <fieldset class="form-group">
+            <%= f.radio_button :prerequisites, 'yes' %>
+            <%= f.label :prerequisites_yes, 'Yes'  %> 
+            <%= f.radio_button :prerequisites, 'no', checked: true   %>
+            <%= f.label :prerequisites_no, 'No' %>
+          </fieldset>
+          <fieldset>
+            <%= f.text_field :max_student, class: "form-control", placeholder: "Enter Maximun Number of Student" %>
+          </fieldset>
         </div>
       </section>
+
       <section>
-        <h2>Course Enrollment Detail</h2>
-      </section>
-      <section>
-        <h2>Course Pricing</h2>
+        <h6>Course Pricing</h6>
       </section>
       <button class="btn btn-default" type="submit">Create Course</button>
   <% end %>
