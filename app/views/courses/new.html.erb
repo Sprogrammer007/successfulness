@@ -1,3 +1,8 @@
+<!-- Load image preview just for this page -->
+<% content_for :head do %>
+  <%= javascript_include_tag "load-image.all.min" %>
+<% end %>
+
 <div id="course">
   <%= form_for @course, url: { action: 'create' }, html:{ id: "", class: "" } do |f| %>
       <section class="clearfix">
@@ -6,9 +11,10 @@
           <%= image_tag("image_placeholder.png") %>
           <div class="btn-group btn-group-justified" role="group" aria-label="...">
             <div class="btn-group" role="group">
-              <button type="button" class="btn btn-default">
+              <label type="button" class="btn btn-default">
+                {{view "file_up" upload='file_upload'}}
                 <i class="fa fa-cloud-upload fa-2x"></i>
-              </button>
+              </label>
             </div>
             <div class="btn-group" role="group">
               <button type="button" class="btn btn-default">

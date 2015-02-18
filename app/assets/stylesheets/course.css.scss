@@ -90,6 +90,10 @@
   height: 265px;
 }
 
+.course-thumb img {
+  width: 200px !important; 
+  height: 320px !important; 
+}
 .course-date button {
   position: absolute;
   background-color: transparent;
@@ -106,6 +110,7 @@
   width: 50px;
 }
 
+.course-thumb input[type='file'],
 .course-prereq input[type=checkbox],
 .course-student input[type=radio] {
   position: absolute;

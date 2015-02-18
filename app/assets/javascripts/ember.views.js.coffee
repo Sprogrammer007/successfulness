@@ -16,4 +16,18 @@ emberViews = ->
         dateFormat      : "yy-mm-dd"
         showOn          : 'both'
         buttonText      : '<i class="fa fa-calendar"></i>'
+
+  Successfulness.FileUpView = Ember.TextField.extend
+    type: 'file'
+    change: (e) ->
+      loadImage e.target.files[0], ((img) ->
+        Ember.$('.course-thumb').find('img').hide()
+        Ember.$('.course-thumb').prepend(img)
+        return
+      ),
+      sourceHeight: 320
+      sourceWidth: 200
+      contain: true
+
+
 $(document).ready(emberViews)
