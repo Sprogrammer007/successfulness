@@ -30,14 +30,14 @@
 .add-course:hover a, .add-course:hover a div > svg {
   color: #f47618;
   text-decoration: none;
-  fill: #f47618
+  fill: #f47618;
 }
 
 .course a svg {
   display: block;
   margin: auto;
   width: 60px;
-  fill: #606060
+  fill: #606060;
 }
 
 /* New Course */
@@ -90,17 +90,14 @@
   height: 265px;
 }
 
-.course-date i {
+.course-date button {
   position: absolute;
   background-color: transparent;
-  border-radius: 0;
+  border-radius: 0px;
   right: 23px !important;
   top: 9px !important;
+  border: none;
   z-index: 10;
-}
-
-.course-date i:hover {
-  cursor: pointer;
 }
 
 #course .course-student label {

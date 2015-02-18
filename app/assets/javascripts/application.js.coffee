@@ -1,6 +1,9 @@
 #= require jquery
 #= require jquery_ujs
+#= require jquery-ui/datepicker
+#= require jquery-ui/effect-fade
 #= require bootstrap
 #= require ckeditor/init
-#= reqquire ckeditor/config
+#= require ckeditor/config
+#= require core
 #= require_self

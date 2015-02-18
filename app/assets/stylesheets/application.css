@@ -15,5 +15,6 @@
  *= require profile
  *= require style
  *= require trackpad-scroll
+ *= require datepicker
  *= require_self
  */
