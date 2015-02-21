@@ -23,6 +23,12 @@ emberComponents = ->
     click: ->
       @sendAction()
 
+
+  Successfulness.ModalDialogComponent = Ember.Component.extend
+    actions:
+      close: ->
+        @sendAction()
+
   Successfulness.EditableDivComponent = Ember.Component.extend
     tagName: "div"
     classNames: ['editable-area']
@@ -53,6 +59,7 @@ emberComponents = ->
             #TODO Ajax content.getData()
         }
       );
+
 
   Successfulness.CkTextareaComponent = Ember.Component.extend
     didInsertElement: ->

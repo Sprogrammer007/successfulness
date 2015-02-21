@@ -46,6 +46,20 @@ h1, h2, h3, h4 {
   border-radius: 0;
 }
 
+.modal-content {
+  border-radius: 2px;
+}
+
+.modal-body {
+  background-color: #3E3D3E;
+  padding: 25px;
+}
+
+.btn-theme-dark {
+  color: #FFF;
+  background-color: #3E3D3E;
+  border-color: #5f5e61;
+}
 // Style Helper
 
 .radius-r-5 {

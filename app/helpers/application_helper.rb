@@ -14,5 +14,15 @@ module ApplicationHelper
     !!current_user
   end
 
- 
+  def hours
+    (1..12).to_a
+  end
+
+  def minutes
+    [ "00", "15", "30", "45" ]
+  end
+
+  def period
+    [ "AM", "PM" ]
+  end
 end

@@ -7,7 +7,7 @@ emberViews = ->
 
     afterRenderEvent: ->
       $('.tse-scrollable').TrackpadScrollEmulator();
-      $('#course_start_date, #course_end_date').datepicker
+      $('#start_date, #end_date').datepicker
         changeYear      : true
         changeMonth     : true
         yearRange       : 'c:c+5'
@@ -17,17 +17,37 @@ emberViews = ->
         showOn          : 'both'
         buttonText      : '<i class="fa fa-calendar"></i>'
 
-  Successfulness.FileUpView = Ember.TextField.extend
-    type: 'file'
-    change: (e) ->
-      loadImage e.target.files[0], ((img) ->
-        Ember.$('.course-thumb').find('img').hide()
-        Ember.$('.course-thumb').prepend(img)
-        return
-      ),
-      sourceHeight: 320
-      sourceWidth: 200
-      contain: true
 
+  Successfulness.ThumbView = Ember.TextField.extend
+    type: 'file'
+    attributeBindings: ['name']
+ 
+    change: (e) ->
+      that = this
+      if e.target.files and e.target.files[0]
+        reader = new FileReader
+
+        reader.onload = (e) ->
+          Ember.$('.course-thumb').find('img').attr 'src', e.target.result
+          return
+
+        reader.readAsDataURL e.target.files[0]
+
+  Successfulness.EditThumbView = Ember.View.extend
+    didInsertElement: ->
+      Ember.$('.edit-thumb').find('img').Jcrop
+        minSize:     [200, 320]
+        maxSize:     [200, 320]
+        setSelect:   [ 0, 0, 200, 320]  
+
+  Successfulness.TimeSelectView = Ember.View.extend
+    attributeBindings: ['name', 'data-toggle']
+    classNames: ['form-control']
+    didInsertElement: ->
+      @$().after("")
+
+    focus: (e)->
+      console.log('')
+ 
 
 $(document).ready(emberViews)

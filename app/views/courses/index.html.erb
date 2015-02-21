@@ -23,9 +23,9 @@
 
   <% if @courses.any? %>
     <% @courses.each do |course| %>
-      <div class="course-item">
+      <div class="course item">
         <%= image_tag course.thumbnail.url() %>
-        <%= section.course %>
+        <%= course.title %>
       </div>
     <% end %>
   <% end %>
