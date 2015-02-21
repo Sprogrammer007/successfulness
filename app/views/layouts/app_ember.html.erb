@@ -40,7 +40,7 @@
           </div>
     
         </div>
-        <div id="right-menu" {{bind-attr class="isOpenRight:open:closed"}}>
+        <div id="right-menu" {{bind-attr class="isOpenRight::open:closed"}}>
           {{right-menu open="openRight" close="closeRight" isOpen=isOpenRight }}
         </div>
       </div>
@@ -62,7 +62,7 @@
     <%= render 'layouts/side_nav' %>
     <%= render 'layouts/right_side_nav' %>
 
-    <%= render 'shared/modal' %>
+    <%= render 'shared/ember_views' %>
 
   </body>
 </html>

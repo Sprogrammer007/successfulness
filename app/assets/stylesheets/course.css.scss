@@ -1,8 +1,5 @@
 /* Courses Style */
 
-.course-item {
-
-}
 
 .course.add-course {
   border: 2px dashed #A8A8A8;
@@ -40,12 +37,21 @@
   fill: #606060;
 }
 
+.course.add-course , .course.item img, .course-thumb img {
+  width: 200px !important; 
+  height: 320px !important; 
+}
+
 /* New Course */
 
 #course .title {
   display: block;
   font-weight: bold;
   margin-bottom: 10px;
+}
+
+#course .row {
+  margin-right: 0;
 }
 
 #course form {
@@ -87,13 +93,9 @@
 }
 
 #course .course-description { 
-  height: 265px;
+  height: 260px;
 }
 
-.course-thumb img {
-  width: 200px !important; 
-  height: 320px !important; 
-}
 .course-date button {
   position: absolute;
   background-color: transparent;
@@ -126,6 +128,7 @@
   border: 1px solid #CCC;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset;
 }
+
 .course-prereq label:hover, 
 .course-student label:hover {
   cursor: pointer;  
@@ -138,6 +141,35 @@
   background-color: #1f1f1f;
   border: 1px solid #1f1f1f;
   color: #fff;
+}
+
+.modal-body.edit-thumb .jcrop-holder{
+  margin: auto;
+}
+
+.start-time, .end-time {
+  display: block;
+  position: absolute;
+  border: 1px solid #CCC;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset;
+  padding: 5px 8px;
+}
+
+.time-content {
+  color: #9F9F9F;
+  font-size: 15px;
+}
+
+.time-content i {
+  margin-left: 2px;
+}
+
+.time-content select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  cursor: pointer;
 }
 
 

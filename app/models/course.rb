@@ -13,9 +13,17 @@ class Course < ActiveRecord::Base
       'Single Module',
       'Multi Modules'
     ]
-  attr_accessor :start_time, :end_time
+  attr_accessor :start_hour, :start_minute, :start_period,
+   :end_hour, :end_minute, :end_period 
+
+
+  has_attached_file :thumbnail, :default_url => "no-image.png"
+  validates_attachment_content_type :thumbnail, :content_type => /\Aimage\/.*\Z/
+  
 
   def self.course_types
    
   end
+
+
 end
