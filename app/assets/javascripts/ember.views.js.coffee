@@ -1,4 +1,19 @@
 emberViews = -> 
+
+  # Drag and Drop Views
+  Successfulness.CourseModuleView = Ember.View.extend DragNDrop.Dragable,
+    attributeBindings: ['type'],
+    type: 'course-module'
+    tagName: 'li'
+
+  Successfulness.DropZoneView = Ember.ContainerView.extend DragNDrop.Droppable,
+    tagName: 'ul'
+
+  Successfulness.DragableLiView = Ember.View.extend DragNDrop.Dragable,
+    classNameBindings: ['isMoving'],
+    isMoving: false
+    tagName: 'li'
+
   Successfulness.ApplicationView = Ember.View.extend 
     templateName: 'application'
     didInsertElement: ->
@@ -39,15 +54,5 @@ emberViews = ->
         minSize:     [200, 320]
         maxSize:     [200, 320]
         setSelect:   [ 0, 0, 200, 320]  
-
-  Successfulness.TimeSelectView = Ember.View.extend
-    attributeBindings: ['name', 'data-toggle']
-    classNames: ['form-control']
-    didInsertElement: ->
-      @$().after("")
-
-    focus: (e)->
-      console.log('')
- 
 
 $(document).ready(emberViews)

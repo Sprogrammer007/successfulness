@@ -4,6 +4,7 @@
  *= require template
  */
 
+
 /* Main App */
 
 .main-wrapper {
@@ -20,18 +21,13 @@
   height: 100%;
   overflow: hidden;
   margin-left: 240px;
-  margin-right: 240px;
   z-index: 2;
   box-sizing: border-box;
-  background: none repeat scroll 0% 0% #FFF;
+  background: none repeat scroll 0% 0% #363634;
 }
 
 #main-content.extended{
   margin-left: 50px;
-}
-
-#main-content.extendedRight{
-  margin-right: 0;
 }
 
 #main-content .maximum-width {
@@ -44,6 +40,16 @@
   font-weight: 600;
   padding: 100px 0
 }
+
+.panel-left, .panel-right {
+  height: 100%;
+  background: #FFF;
+}
+
+.panel-right {
+  box-shadow: -7px 0 9px -7px rgba(0,0,0,0.4);
+}
+
 /* Icons */
 
 
@@ -396,41 +402,11 @@
   }
 
 
-/* Right Side Menu */
-  
-  #right-menu {
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0px;
-    width: 240px;
-    z-index: 3;
-    background: none repeat scroll 0% 0% #363634;
-    box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.2) inset;
-  }
-
-  #right-menu.closed {
-    width: 0px;
-  }
-
-  #right-close.open {
-    top: 5px;
-    right: 250px;
-  }
-
-  #right-close.closed {
-    top: 5px;
-    right: 10px;
-  }
-
-
-
 /* Modal */
 
   .modal-dialog {
     z-index: 10;
   }
-
 
   .overlay {
     height: 100%;

@@ -2,11 +2,10 @@
 #= require ember-1.9.1
 #= require trackpad-scroll.min
 #= require_self
+#= require ember.dragndrop
 #= require ember.views
 #= require ember.components
 #= require ember.controllers
-
-
 
 ready = ->
   window.Successfulness = Ember.Application.create()

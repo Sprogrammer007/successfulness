@@ -11,5 +11,6 @@ Rails.application.config.assets.precompile += %w( ckeditor/*
   load-image.all.min.js 
   jquery.Jcrop.min.js
   jquery.Jcrop.min.css
+  jquery.ui.dragndrop.js
 )
 

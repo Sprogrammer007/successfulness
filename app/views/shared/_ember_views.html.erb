@@ -33,3 +33,19 @@
   </div>
 </script>
 
+
+<script type="text/x-handlebars" data-template-name="course-module">
+  <div class=""> 
+    {{yield}}
+  </div>
+</script>
+
+<script type="text/x-handlebars" data-template-name="components/new-course">
+    {{#if isClicked}}
+      {{focus-input targetAction="testAction"}}
+    {{else}}
+      <i class="fa fa-plus"></i> New Course
+     
+    {{/if}}
+</script>
+

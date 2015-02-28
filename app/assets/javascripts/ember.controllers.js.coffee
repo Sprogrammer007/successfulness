@@ -1,23 +1,16 @@
 emberControllers = ->
   Successfulness.ApplicationController = Ember.Controller.extend
     leftToggleState: true
-    rightToggleState: true
     cropState: false
     cropOn: Ember.computed.alias('cropState')
     isOpenLeft: Ember.computed.alias('leftToggleState')
-    isOpenRight: Ember.computed.alias('rightToggleState')
+
 
     actions: {
       closeLeft: ->
         @set('leftToggleState', false)
       openLeft: ->
         @set('leftToggleState', true)   
-
-      closeRight: ->
-        @set('rightToggleState', false)
-      
-      openRight: ->
-        @set('rightToggleState', true)
     }
 
   Successfulness.ApplicationRoute = Ember.Route.extend

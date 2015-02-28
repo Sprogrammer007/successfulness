@@ -15,7 +15,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :courses
+  resources :courses do
+    member do
+      get 'structure'
+    end
+  end
 
   resources :page_templates
   resources :sessions, only: [:create]
@@ -25,6 +29,7 @@ Rails.application.routes.draw do
       get 'dashboard'
       get 'settings'
       post 'update_settings'
+
     end
   end
 

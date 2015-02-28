@@ -11,19 +11,6 @@ emberComponents = ->
     click: ->
       @sendAction()  
 
-  Successfulness.RightMenuComponent = Ember.Component.extend
-    actions: 
-      toggle: ->
-        if (@get('isOpen')) 
-          @sendAction('close')
-        else
-          @sendAction('open')
-
-  Successfulness.RightToggleButtonComponent = Ember.Component.extend
-    click: ->
-      @sendAction()
-
-
   Successfulness.ModalDialogComponent = Ember.Component.extend
     actions:
       close: ->
@@ -71,5 +58,34 @@ emberComponents = ->
             #TODO Ajax content.getData()
         }
       );
+
+  Successfulness.NewCourseComponent = Ember.Component.extend
+    classNames: ['new-course']
+    isClicked: (-> 
+      return false
+    ).property()
+    click: ->
+      if !@get('isClicked')
+        @set('isClicked', true)
+    actions: 
+      testAction: (value) ->
+        that = @
+        if value == ''
+          @set('isClicked', false)
+        else
+          Ember.$.post(@get('url'), {course: {title: value}}, ((data)->
+            that.set('isClicked', false)
+            ), 'script')  
+        
+
+  Successfulness.FocusInputComponent = Ember.TextField.extend
+    becomeFocused: (->
+      @$().focus()
+      return
+    ).on('didInsertElement')
+
+    focusOut: ->
+      this.sendAction('targetAction', this.get('value'));
+
 
 $(document).ready(emberComponents)
