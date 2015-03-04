@@ -16,20 +16,17 @@
 .course-header {
   font-size: 20px;
   font-weight: bold;
+  border-bottom: 1px solid #dedede;
 }
 
 .new-course, .course-item {
   font-size: 15px;
   font-weight: bold;
-  border-top: 1px solid #d4d4d4;
+  border-bottom: 1px solid #dedede;
   list-style: outside none none;
   color: #f47618;
   line-height: 31px;
   cursor: pointer;
-}
-
-.new-course:hover, .course-item:hover {
-  background-color: #EEE;
 }
 
 .new-course input {
@@ -38,33 +35,31 @@
   width: 100%;
 }
 
-.course a {
-  color: #606060;
-  text-decoration: none; 
+.course-item:nth-child(odd) {
+  background-color: #fbfbfb;
 }
 
-.add-course:hover  {
-  cursor: pointer;
-  border-color:  #f47618;
+.new-course:hover, .course-item:hover {
+  background-color: #b9e5ff;
 }
 
-.course a svg {
-  display: block;
-  margin: auto;
-  width: 60px;
-  fill: #606060;
+.course-item .course-title {
+  margin-left: 25px;
+  color: #000;
 }
 
-.course.item span {
-  margin-top: 15px;
-  font-size: 20px;
+.course-item .course-thumbnail img {
+  height: 50px;
+  float: left;
 }
 
-.course.add-course , .course.item img, .course-thumb img {
-  width: 200px !important; 
-  height: 320px !important; 
+.course-list .course-item.active {
+  background-color: #b9e5ff;
 }
 
+.course-item .course-buttons {
+  margin-right: 20px;
+}
 /* New Course */
 
 #course .title {

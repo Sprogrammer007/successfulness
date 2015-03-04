@@ -5,7 +5,9 @@ class CoursesController < ApplicationController
 
   
   def index
+
     @courses = current_user.courses
+
   end
 
   def new
@@ -13,11 +15,12 @@ class CoursesController < ApplicationController
   end
 
   def create
+    Rails.logger.warn "create"
     @course = current_user.courses.create(newCourseParams)
     if @course.save()
       respond_to do |format|
         format.html { redirect_to courses_path() }
-        format.js
+        format.json { render json: @course, root: false }
       end
     else
       redirect_to :back
@@ -26,6 +29,11 @@ class CoursesController < ApplicationController
 
   def structure
     
+  end
+
+  def destroy
+    course = Course.find(params[:id]).destroy
+    redirect_to :back
   end
 
 

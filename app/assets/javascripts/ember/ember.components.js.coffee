@@ -59,24 +59,41 @@ emberComponents = ->
         }
       );
 
+  # New Course Component
   Successfulness.NewCourseComponent = Ember.Component.extend
     classNames: ['new-course']
     isClicked: (-> 
       return false
     ).property()
+    
+    
     click: ->
       if !@get('isClicked')
         @set('isClicked', true)
+
+
     actions: 
-      testAction: (value) ->
+      add: (value) ->
         that = @
         if value == ''
           @set('isClicked', false)
         else
-          Ember.$.post(@get('url'), {course: {title: value}}, ((data)->
-            that.set('isClicked', false)
-            ), 'script')  
-        
+          Ember.$.post(@get('url'), {course: {title: value}}, @newCourse(that), 'json')  
+  
+    newCourse: (that) ->
+      return (json) ->
+        course = Em.Object.create(json)
+        Successfulness.Courses.addObject(course);
+        that.set('isClicked', false);
+        that.get('parentView').send('success', course)
+
+  Successfulness.CourseListComponent = Ember.Component.extend
+    tagName: 'ul'
+    classNames: ['course-list']
+    theCourses: ( ->
+      Successfulness.Courses = JSON.parse(this.get('courses').replace(/&quot;/g,'"'))
+      return Successfulness.Courses 
+    ).property()
 
   Successfulness.FocusInputComponent = Ember.TextField.extend
     becomeFocused: (->
@@ -85,7 +102,7 @@ emberComponents = ->
     ).on('didInsertElement')
 
     focusOut: ->
-      this.sendAction('targetAction', this.get('value'));
+      this.sendAction('action', this.get('value'));
 
 
 $(document).ready(emberComponents)

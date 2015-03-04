@@ -1,19 +1,53 @@
-<div id="courses">
-
-  <div class="col-lg-4 panel-left">
-    <div class="course-header">
-      My Courses
+<% content_for :footer do %> 
+  <script type="text/x-handlebars" data-template-name="courses">
+    <div class="col-lg-4 tse-scrollable panel-left">
+      <div class="tse-content wrapper">
+        <div class="course-header">
+          My Courses
+        </div>
+        
+        {{new-course url="<%= url_for(controller: 'courses', action: 'create') %>"}}
+        {{course-list courses='<%= json_for(@courses) %>'}}
+      </div>
     </div>
-    {{new-course url="<%= url_for(controller: 'courses', action: 'create') %>"}}
-    <div class="course-list">
-      <% if @courses.any? %>
-        <%= render @courses  %>
-      <% end %>
+    <div class="col-lg-8 panel-right">
+      {{outlet}}
     </div>
-  </div>
-  <div class="col-lg-8 panel-right">
-    
-  </div>
-</div>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="course">
+    {{title}}
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="components/course-list">
+    {{#each course in theCourses}}
+      {{#link-to 'course' course href=false tagName='li' classNames="course-item clearfix"}}
+
+        <div class="course-thumbnail">
+          <%= image_tag 'image_placeholder.png' %>
+        </div>
+        <span class="course-title">
+          {{course.title}}
+        </span>
+        <div class="course-buttons pull-right">
+          <a {{bind-attr href=course.url}} data-method="delete" >
+            <i class="fa fa-trash-o"></i>
+          </a>
+        </div>
+
+      {{/link-to}}
+    {{/each}}
+  </script> 
 
 
+  <script type="text/x-handlebars" data-template-name="components/new-course">
+    {{#if isClicked}}
+      {{focus-input action="add"}}
+    {{else}}
+      <i class="fa fa-plus"></i> New Course
+    {{/if}}
+  </script>
+
+<% end %>
+
+{{render "courses" }}

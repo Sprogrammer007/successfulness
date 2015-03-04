@@ -34,32 +34,18 @@
         <div id="left-menu" {{bind-attr class="isOpenLeft:open:closed"}}>
           {{left-menu user="<%=  current_user ? current_user.username : 'Not Logged in'  %>" open="openLeft" close="closeLeft" isOpen=isOpenLeft }}
         </div>
-        <div id="main-content" class="tse-scrollable" {{bind-attr class="isOpenLeft::extended isOpenRight::extendedRight"}}>
-          <div class="tse-content wrapper">
-            <%= yield %>
-          </div>
+        <div id="main-content" {{bind-attr class="isOpenLeft::extended isOpenRight::extendedRight"}}>
     
+          <%= yield %>
+      
         </div>
     
       </div>
     </script>
 
-    <script type="text/x-handlebars" data-template-name="components/editable-div">
-      {{yield}}
-    </script>
-
-    <script type="text/x-handlebars" data-template-name="components/editable-header">
-      {{yield}}
-    </script>
-
-    <script type="text/x-handlebars" data-template-name="components/ck-textarea">
-      {{yield}}
-    </script>
-
-
     <%= render 'layouts/side_nav' %>
-
     <%= render 'shared/ember_views' %>
+    <%= yield :footer %>
 
   </body>
 </html>

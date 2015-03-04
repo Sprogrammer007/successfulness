@@ -32,6 +32,11 @@ emberViews = ->
         showOn          : 'both'
         buttonText      : '<i class="fa fa-calendar"></i>'
 
+  Successfulness.CoursesView = Ember.View.extend
+    elementId: 'courses'
+    actions:
+      success: (course)->
+        this.get('controller').transitionToRoute('course', course);
 
   Successfulness.ThumbView = Ember.TextField.extend
     type: 'file'
@@ -54,5 +59,7 @@ emberViews = ->
         minSize:     [200, 320]
         maxSize:     [200, 320]
         setSelect:   [ 0, 0, 200, 320]  
+
+  Successfulness.EditCourseView = Ember.View.extend();
 
 $(document).ready(emberViews)

@@ -30,10 +30,6 @@
   margin-right: -15px;
 }
 
-.tse-scroll-content .wrapper {
-  height: 100%;
-}
-
 .tse-content {
   overflow: hidden !important;
 }

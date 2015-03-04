@@ -21,6 +21,7 @@ gem 'font-awesome-sass'
 
 # For Payment Gateway in future
 gem 'activemerchant'
+gem 'active_model_serializers'
 
 # Server Manager
 gem 'puma'
