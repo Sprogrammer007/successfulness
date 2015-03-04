@@ -1,3 +1,15 @@
+<script type="text/x-handlebars" data-template-name="components/editable-div">
+  {{yield}}
+</script>
+
+<script type="text/x-handlebars" data-template-name="components/editable-header">
+  {{yield}}
+</script>
+
+<script type="text/x-handlebars" data-template-name="components/ck-textarea">
+  {{yield}}
+</script>
+
 
 <script type="text/x-handlebars" data-template-name="modal">
   {{#modal-dialog action="close"}}
@@ -10,6 +22,7 @@
       </div>
   {{/modal-dialog}}
 </script>
+
 
 <script type="text/x-handlebars" data-template-name="edit-thumb">
   {{#modal-dialog action="close" confirmBotton="Crop"}}
@@ -33,3 +46,9 @@
   </div>
 </script>
 
+<!-- Test -->
+<script type="text/x-handlebars" data-template-name="course-module">
+  <div class=""> 
+    {{yield}}
+  </div>
+</script>

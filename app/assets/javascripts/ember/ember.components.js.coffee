@@ -11,19 +11,6 @@ emberComponents = ->
     click: ->
       @sendAction()  
 
-  Successfulness.RightMenuComponent = Ember.Component.extend
-    actions: 
-      toggle: ->
-        if (@get('isOpen')) 
-          @sendAction('close')
-        else
-          @sendAction('open')
-
-  Successfulness.RightToggleButtonComponent = Ember.Component.extend
-    click: ->
-      @sendAction()
-
-
   Successfulness.ModalDialogComponent = Ember.Component.extend
     actions:
       close: ->
@@ -71,5 +58,51 @@ emberComponents = ->
             #TODO Ajax content.getData()
         }
       );
+
+  # New Course Component
+  Successfulness.NewCourseComponent = Ember.Component.extend
+    classNames: ['new-course']
+    isClicked: (-> 
+      return false
+    ).property()
+    
+    
+    click: ->
+      if !@get('isClicked')
+        @set('isClicked', true)
+
+
+    actions: 
+      add: (value) ->
+        that = @
+        if value == ''
+          @set('isClicked', false)
+        else
+          Ember.$.post(@get('url'), {course: {title: value}}, @newCourse(that), 'json')  
+  
+    newCourse: (that) ->
+      return (json) ->
+        course = Em.Object.create(json)
+        Successfulness.Courses.addObject(course);
+        that.set('isClicked', false);
+        that.get('parentView').send('success', course)
+
+  Successfulness.CourseListComponent = Ember.Component.extend
+    tagName: 'ul'
+    classNames: ['course-list']
+    theCourses: ( ->
+      Successfulness.Courses = JSON.parse(this.get('courses').replace(/&quot;/g,'"'))
+      return Successfulness.Courses 
+    ).property()
+
+  Successfulness.FocusInputComponent = Ember.TextField.extend
+    becomeFocused: (->
+      @$().focus()
+      return
+    ).on('didInsertElement')
+
+    focusOut: ->
+      this.sendAction('action', this.get('value'));
+
 
 $(document).ready(emberComponents)

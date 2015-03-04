@@ -1,47 +1,65 @@
 /* Courses Style */
 
-
-.course.add-course {
-  border: 2px dashed #A8A8A8;
-  padding: 5px;
-  text-align: center;
-  background: -moz-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%, rgba(168,168,168,0.65) 100%); /* FF3.6+ */
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(168,168,168,0.65))); /* Chrome,Safari4+ */
-  background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%,rgba(168,168,168,0.65) 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%,rgba(168,168,168,0.65) 100%); /* Opera 12+ */
-  background: -ms-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%,rgba(168,168,168,0.65) 100%); /* IE10+ */
-  background: radial-gradient(ellipse at center,  rgba(0,0,0,0) 0%,rgba(168,168,168,0.65) 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6a8a8a8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+#courses {
+  height: 100%;
 }
 
-.course a {
-  color: #606060;
-  text-decoration: none; 
+#courses .col-lg-4 {
+  padding-left: 0;
+  padding-right: 0;
 }
 
-.add-course:hover  {
-  cursor: pointer;
-  border-color:  #f47618;
+.course-header, .new-course, .course-item {
+  padding: 10px 10px 10px 30px;
 }
 
-.add-course:hover a, .add-course:hover a div > svg {
+.course-header {
+  font-size: 20px;
+  font-weight: bold;
+  border-bottom: 1px solid #dedede;
+}
+
+.new-course, .course-item {
+  font-size: 15px;
+  font-weight: bold;
+  border-bottom: 1px solid #dedede;
+  list-style: outside none none;
   color: #f47618;
-  text-decoration: none;
-  fill: #f47618;
+  line-height: 31px;
+  cursor: pointer;
 }
 
-.course a svg {
-  display: block;
-  margin: auto;
-  width: 60px;
-  fill: #606060;
+.new-course input {
+  line-height: normal;
+  padding: 5px;
+  width: 100%;
 }
 
-.course.add-course , .course.item img, .course-thumb img {
-  width: 200px !important; 
-  height: 320px !important; 
+.course-item:nth-child(odd) {
+  background-color: #fbfbfb;
 }
 
+.new-course:hover, .course-item:hover {
+  background-color: #b9e5ff;
+}
+
+.course-item .course-title {
+  margin-left: 25px;
+  color: #000;
+}
+
+.course-item .course-thumbnail img {
+  height: 50px;
+  float: left;
+}
+
+.course-list .course-item.active {
+  background-color: #b9e5ff;
+}
+
+.course-item .course-buttons {
+  margin-right: 20px;
+}
 /* New Course */
 
 #course .title {
@@ -170,6 +188,97 @@
   appearance: none;
   border: none;
   cursor: pointer;
+}
+
+/* Course Structure */
+
+[draggable] {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  /* Required to make elements draggable in old WebKit */
+  -khtml-user-drag: element;
+  -webkit-user-drag: element;
+  cursor: pointer;
+}
+
+.module-box  {
+  width: 100px;
+  height: 60px;
+  background: linear-gradient(#444, #111);
+  position: relative;
+  user-select: none;
+  border: 1px solid white;
+  margin: 0 0 0.75rem 0;
+  box-shadow: 0 0 5px rgba(black, 0.5);
+  text-align: center;
+  color: white;
+  line-height: 60px;
+  font-size: 0.5rem;
+  z-index: 5;
+  &:before {
+    position: absolute;
+    bottom: 0;
+    right: 100%;
+    counter-increment: module-boxs;
+    content: counter(module-boxs);
+    padding-right: 0.35rem;
+    color: #999;
+    line-height: normal;
+    font-size: 1rem;
+  }
+}
+
+.drop-box {
+  margin: 20px;
+}
+
+.dropzone li {
+  list-style: none;
+}
+
+.dropzone .placeholder, .dropzone .placeholder2 {
+  width: 100px;
+  height: 60px;
+  background: linear-gradient(#444, #111);
+  position: relative;
+  user-select: none;
+  border: 1px solid white;
+  margin: 0 0 0.75rem 0;
+  box-shadow: 0 0 5px rgba(black, 0.5);
+  text-align: center;
+  color: white;
+  line-height: 60px;
+  font-size: 15px;
+  z-index: 1;
+}
+
+// .course-structure .dropzone li::before{
+//   content: '';
+//   position: absolute;
+//   top: .9em;
+//   left: -4em;
+//   width: 4em;
+//   height: .2em;
+//   opacity: 1;
+//   background: dodgerblue;
+//   z-index: -1;
+// }
+
+.course-structure .dropzone li.is-moving {
+  opacity: 0.3;
+  transform: scale(1.8);
+  transition: opacity 1s ease-in-out 0s;
+}
+
+.course-structure .dropzone li.is-moving::before{
+  display: none;
+}
+
+
+.course-structure .dropzone li:first-child::before {
+  display: none;
 }
 
 

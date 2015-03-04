@@ -1,4 +1,19 @@
 emberViews = -> 
+
+  # Drag and Drop Views
+  Successfulness.CourseModuleView = Ember.View.extend DragNDrop.Dragable,
+    attributeBindings: ['type'],
+    type: 'course-module'
+    tagName: 'li'
+
+  Successfulness.DropZoneView = Ember.ContainerView.extend DragNDrop.Droppable,
+    tagName: 'ul'
+
+  Successfulness.DragableLiView = Ember.View.extend DragNDrop.Dragable,
+    classNameBindings: ['isMoving'],
+    isMoving: false
+    tagName: 'li'
+
   Successfulness.ApplicationView = Ember.View.extend 
     templateName: 'application'
     didInsertElement: ->
@@ -17,6 +32,11 @@ emberViews = ->
         showOn          : 'both'
         buttonText      : '<i class="fa fa-calendar"></i>'
 
+  Successfulness.CoursesView = Ember.View.extend
+    elementId: 'courses'
+    actions:
+      success: (course)->
+        this.get('controller').transitionToRoute('course', course);
 
   Successfulness.ThumbView = Ember.TextField.extend
     type: 'file'
@@ -40,14 +60,6 @@ emberViews = ->
         maxSize:     [200, 320]
         setSelect:   [ 0, 0, 200, 320]  
 
-  Successfulness.TimeSelectView = Ember.View.extend
-    attributeBindings: ['name', 'data-toggle']
-    classNames: ['form-control']
-    didInsertElement: ->
-      @$().after("")
-
-    focus: (e)->
-      console.log('')
- 
+  Successfulness.EditCourseView = Ember.View.extend();
 
 $(document).ready(emberViews)

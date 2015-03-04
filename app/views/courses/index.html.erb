@@ -1,35 +1,53 @@
-<div id="courses">
-
-  <div class="course item add-course">
-    <%= link_to new_course_path() do %>
-      <div class="vertical-center">
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" >
-            <path d="M78.337,38.889c-0.012-0.182-0.047-0.361-0.111-0.549l-0.066-0.176c-0.109-0.244-0.246-0.447-0.418-0.619L56.536,16.338
-            c-0.17-0.168-0.371-0.303-0.641-0.426c-0.043-0.018-0.086-0.033-0.158-0.057c-0.191-0.064-0.375-0.102-0.572-0.111l-0.107-0.016
-            h-14.01c-5.039,0-9.137,4.098-9.137,9.137v1.229h-4.945c-5.037,0-9.135,4.1-9.135,9.137v42.262c0,5.037,4.098,9.137,9.135,9.137
-            h28.176c5.037,0,9.135-4.1,9.135-9.137v-1.23h4.943c5.039,0,9.137-4.098,9.137-9.137V39.029L78.337,38.889z M49.466,65.646h-7.172
-            v7.172c0,1.105-0.896,2-2,2c-1.105,0-2-0.895-2-2v-7.172h-7.172c-1.105,0-2-0.895-2-2c0-1.104,0.895-2,2-2h7.172v-7.172
-            c0-1.104,0.895-2,2-2c1.104,0,2,0.896,2,2v7.172h7.172c1.105,0,2,0.896,2,2C51.466,64.752,50.571,65.646,49.466,65.646z
-             M48.021,47.301c-2.73,0-4.951-2.221-4.951-4.951V33.24l14.063,14.061H48.021z M62.101,36.936c-2.73,0-4.949-2.221-4.949-4.951
-            v-9.111l14.061,14.063H62.101z"/>
-          </svg>
-          <span>Create New Course</span>
+<% content_for :footer do %> 
+  <script type="text/x-handlebars" data-template-name="courses">
+    <div class="col-lg-4 tse-scrollable panel-left">
+      <div class="tse-content wrapper">
+        <div class="course-header">
+          My Courses
         </div>
+        
+        {{new-course url="<%= url_for(controller: 'courses', action: 'create') %>"}}
+        {{course-list courses='<%= json_for(@courses) %>'}}
       </div>
-    <% end %>
+    </div>
+    <div class="col-lg-8 panel-right">
+      {{outlet}}
+    </div>
+  </script>
 
-  </div>
+  <script type="text/x-handlebars" data-template-name="course">
+    {{title}}
+  </script>
 
-  <% if @courses.any? %>
-    <% @courses.each do |course| %>
-      <div class="course item">
-        <%= image_tag course.thumbnail.url() %>
-        <%= course.title %>
-      </div>
-    <% end %>
-  <% end %>
-</div>
+  <script type="text/x-handlebars" data-template-name="components/course-list">
+    {{#each course in theCourses}}
+      {{#link-to 'course' course href=false tagName='li' classNames="course-item clearfix"}}
+
+        <div class="course-thumbnail">
+          <%= image_tag 'image_placeholder.png' %>
+        </div>
+        <span class="course-title">
+          {{course.title}}
+        </span>
+        <div class="course-buttons pull-right">
+          <a {{bind-attr href=course.url}} data-method="delete" >
+            <i class="fa fa-trash-o"></i>
+          </a>
+        </div>
+
+      {{/link-to}}
+    {{/each}}
+  </script> 
 
 
+  <script type="text/x-handlebars" data-template-name="components/new-course">
+    {{#if isClicked}}
+      {{focus-input action="add"}}
+    {{else}}
+      <i class="fa fa-plus"></i> New Course
+    {{/if}}
+  </script>
 
+<% end %>
+
+{{render "courses" }}

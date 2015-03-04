@@ -10,6 +10,14 @@ module ApplicationHelper
     end
   end
 
+  # Helper to render Serialized data inline
+  def json_for(obj, options = {})
+    options[:scope] ||= self
+    options[:url_options] ||= url_options
+    ActiveModel::Serializer.serializer_for(obj).new(obj, options).to_json
+  end
+
+
   def user_signed_in?
     !!current_user
   end

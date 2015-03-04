@@ -5,7 +5,9 @@ class CoursesController < ApplicationController
 
   
   def index
+
     @courses = current_user.courses
+
   end
 
   def new
@@ -13,16 +15,33 @@ class CoursesController < ApplicationController
   end
 
   def create
-    course = current_user.courses.create(safeParams)
-    if course.save()
-      # TODO after save stuff
-      redirect_to courses_path()
+    Rails.logger.warn "create"
+    @course = current_user.courses.create(newCourseParams)
+    if @course.save()
+      respond_to do |format|
+        format.html { redirect_to courses_path() }
+        format.json { render json: @course, root: false }
+      end
     else
       redirect_to :back
     end
   end
 
+  def structure
+    
+  end
+
+  def destroy
+    course = Course.find(params[:id]).destroy
+    redirect_to :back
+  end
+
+
   private
+
+    def newCourseParams
+      params.require(:course).permit(:title)
+    end
 
     def safeParams
       startDate = convertDateTime(params[:start_date], params[:start_hour], params[:start_minute], params[:start_period])

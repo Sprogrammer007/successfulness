@@ -1,0 +1,17 @@
+<% content_for :head do %>
+  <%= javascript_include_tag "jquery.ui.dragndrop" %>
+
+<% end %>
+<div class="course-structure">
+<ul>
+{{#view 'course-module' class="module-box"}}
+  A
+{{/view}}
+{{#view 'course-module' class="module-box"}}
+  b
+{{/view}}
+</ul>
+<div class="dropzone">
+{{view 'drop-zone' class="drop-box" viewName="dropzone1"}}
+</div>
+</div>
