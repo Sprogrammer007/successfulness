@@ -9,7 +9,7 @@
   padding-right: 0;
 }
 
-.course-header, .new-course, .course-item {
+.new-course, .course-item {
   padding: 10px 10px 10px 30px;
 }
 
@@ -17,6 +17,7 @@
   font-size: 20px;
   font-weight: bold;
   border-bottom: 1px solid #dedede;
+  padding: 20px 10px 20px 30px;
 }
 
 .new-course, .course-item {
@@ -62,57 +63,45 @@
 }
 /* New Course */
 
-#course .title {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 10px;
+.course-details .section {
+  border-bottom: 1px solid #dedede;
 }
 
-#course .row {
-  margin-right: 0;
+.course-details.col-lg-8 {
+  padding: 0;
 }
 
-#course form {
-  width: 800px;
-}
-
-#course .btn, #course h6 {
+.course-details .btn {
   color: #FFF;
   background-color: #3E3D3E; 
+  border: none;
 }
 
-#course h6 {
-  font-size: 26px;
-  font-weight: 600;
-  padding: 5px 10px;
-}
-
-#course .btn {
-  border-color: #6E6E6E;
-}
-
-#course .btn:hover {
+.course-details .btn:hover {
   background-color: #1f1f1f; 
   color: #f47618;
 }
 
-#course section {
-  margin-bottom: 20px;
+.course-details .course-description {
+  font-size: 16px;
+  padding: 30px;
+  color: #A5A5A5;
 }
 
-#course select.form-control {
-  color: #9F9F9F;
+.course-details .buttons {
+  padding: 20px 30px;
+}
+
+.course-details .asdfg {
+  display: inline-block;
+  margin-right: 10px;
 }
 
 .course-thumb {
   width: 200px; 
-  float: left; 
-  margin-right: 20px;
+  float: right;
 }
 
-#course .course-description { 
-  height: 260px;
-}
 
 .course-date button {
   position: absolute;

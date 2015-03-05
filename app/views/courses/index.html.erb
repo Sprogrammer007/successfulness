@@ -6,17 +6,38 @@
           My Courses
         </div>
         
-        {{new-course url="<%= url_for(controller: 'courses', action: 'create') %>"}}
+        {{course-title classNames="new-course"  url="<%= url_for(controller: 'courses', action: 'create') %>"}}
         {{course-list courses='<%= json_for(@courses) %>'}}
       </div>
     </div>
-    <div class="col-lg-8 panel-right">
+    <div class="course-details col-lg-8 panel-right">
       {{outlet}}
     </div>
   </script>
 
   <script type="text/x-handlebars" data-template-name="course">
-    {{title}}
+    <div class="course-thumb">
+   
+      <%= image_tag("image_placeholder.png") %>
+
+    </div>
+    <div class="course-header section">
+      {{course-title course=this classNames="title"}}
+    </div>
+    <div class="buttons section">
+      <div class="asdfg">
+        <i class="fa fa-calendar"></i> Mar 04 - Apr 16
+      </div>
+      <div class="asdfg">
+        <i class="fa fa-users"></i> Student Limit
+      </div>
+      <div class="asdfg">
+        <i class="fa fa-usd"></i> Course Price
+      </div>
+    </div>
+    <div class="course-description section">
+      Click to add course description
+    </div>
   </script>
 
   <script type="text/x-handlebars" data-template-name="components/course-list">
@@ -39,12 +60,15 @@
     {{/each}}
   </script> 
 
-
-  <script type="text/x-handlebars" data-template-name="components/new-course">
+  <script type="text/x-handlebars" data-template-name="components/course-title">
     {{#if isClicked}}
       {{focus-input action="add"}}
     {{else}}
-      <i class="fa fa-plus"></i> New Course
+      {{#if course}}
+        {{course.title}}
+      {{else}}
+        <i class="fa fa-plus"></i> New Course
+      {{/if}}
     {{/if}}
   </script>
 
