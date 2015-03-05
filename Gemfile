@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.1'
+ruby '2.1.4'
 #ruby-gemset=success
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -8,8 +8,8 @@ gem "paperclip", "~> 4.2"
 gem 'active_model_serializers'
 
 # Use MySQL as the database for Active Record
-# gem 'pg'
-gem 'mysql2'
+gem 'pg'
+# gem 'mysql2'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
