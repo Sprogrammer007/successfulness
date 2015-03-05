@@ -60,17 +60,14 @@ emberComponents = ->
       );
 
   # New Course Component
-  Successfulness.NewCourseComponent = Ember.Component.extend
-    classNames: ['new-course']
+  Successfulness.CourseTitleComponent = Ember.Component.extend
     isClicked: (-> 
       return false
     ).property()
     
-    
     click: ->
       if !@get('isClicked')
         @set('isClicked', true)
-
 
     actions: 
       add: (value) ->
