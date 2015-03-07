@@ -3,10 +3,37 @@
 #courses {
   height: 100%;
 }
-
 #courses .col-lg-4 {
   padding-left: 0;
   padding-right: 0;
+}
+
+#courses .dropdown-menu > li {
+  display: block;
+  padding: 6px 20px;
+  clear: both;
+  font-weight: 400;
+  line-height: 1.42857;
+  color: #333;
+  white-space: nowrap;
+}
+
+#courses .dropdown-menu >li.active {
+  background-color: #5285B8;
+  border-color: #5285B8;
+}
+
+#courses .dropdown-menu > li:focus,
+#courses .dropdown-menu > li:hover {
+  color: #262626;
+  background-color: #F5F5F5;
+}
+
+#courses .dropdown-menu > li.active:hover,
+#courses .dropdown-menu > li.active:focus {
+  cursor: no-drop;
+  background-color: #5285B8;
+  border-color: #5285B8;
 }
 
 .new-course, .course-item {
@@ -71,15 +98,41 @@
   padding: 0;
 }
 
+.course-details .header {
+  line-height: 49px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.header .course-status {
+  display: inline-block;
+  width: 120px;
+  text-align: center;
+  border-right: 1px solid #dedede;
+  margin-right: 20px;
+  padding: 10px;
+}
+
+.header .course-status:hover {
+  cursor: pointer;
+}
+
+.header .course-status.draft {
+  background-color: #dedede;
+}
+
+.header .title {
+  display:  inline-block;
+}
+
 .course-details .btn {
-  color: #FFF;
-  background-color: #3E3D3E; 
   border: none;
+  font-size: 15px;
+  line-height: 38px;
 }
 
 .course-details .btn:hover {
-  background-color: #1f1f1f; 
-  color: #f47618;
+  background-color: #ededed; 
 }
 
 .course-details .course-description {
@@ -88,35 +141,86 @@
   color: #A5A5A5;
 }
 
-.course-details .buttons {
-  padding: 20px 30px;
+.course-details .nav .center-block {
+  width: 80%;
 }
 
-.course-details .asdfg {
-  display: inline-block;
+.course-details .nav .btn.active {
+  border-bottom: 1px solid #f47618;
+  box-shadow: none;
+  background: none;
+}
+
+.course-details .nav svg {
+  float: left;
   margin-right: 10px;
+  fill: #f47618;
+  width: 35px;
 }
 
-.course-thumb {
-  width: 200px; 
+.course-details i {
+  color: #f47618;
+}
+
+.course-details .course-thumb {
+  position: relative;
+  width: 200px;
+  margin: 20px 0;
   float: right;
 }
 
+.course-details .course-thumb label {
+  display: inherit;
+  margin-bottom: 0;
+}
+
+.course-details .upload-hover {
+  position: absolute;
+  line-height: 1.5em;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  color: #FFF;
+  background: none repeat scroll 0% 0% rgba(33, 27, 25, 0.75);
+  opacity: 0;
+  padding-top: 10px;
+  box-shadow: none;
+  text-align: center;
+  transition: all 0.15s ease 0s;
+  z-index: 1;
+}
+
+.course-details .upload-hover:hover {
+  opacity: 1;
+  padding-top: 0px;
+  cursor: pointer;
+}
 
 .course-date button {
   position: absolute;
   background-color: transparent;
   border-radius: 0px;
-  right: 23px !important;
-  top: 9px !important;
+  top: 7px !important;
+  left: 8px !important;
   border: none;
   z-index: 10;
 }
 
-#course .course-student label {
-  text-align: center;
-  font-size: 16px;
-  width: 50px;
+.course-settings .section {
+  border-color: #AAA;
+}
+
+.course-settings .part{
+  width: 80%;
+  margin: auto;
+  font-size: 15px;
+}
+
+.part .option {
+  display: inline-block;
+  padding: 10px 20px;
+  border-left:  1px solid #AAA;
 }
 
 .course-thumb input[type='file'],
@@ -125,50 +229,6 @@
   position: absolute;
   top: -9999px;
   left: -9999px;
-}
-
-.course-prereq label, 
-.course-student label {
-  padding: 5px 8px;
-  font-size: 14px;
-  color: #9F9F9F;
-  border: 1px solid #CCC;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset;
-}
-
-.course-prereq label:hover, 
-.course-student label:hover {
-  cursor: pointer;  
-  border: 1px solid #f47618;
-  color: #f47618;
-}
-
-.course-prereq input[type=checkbox]:checked + label,
-.course-student input[type=radio]:checked + label {
-  background-color: #1f1f1f;
-  border: 1px solid #1f1f1f;
-  color: #fff;
-}
-
-.modal-body.edit-thumb .jcrop-holder{
-  margin: auto;
-}
-
-.start-time, .end-time {
-  display: block;
-  position: absolute;
-  border: 1px solid #CCC;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset;
-  padding: 5px 8px;
-}
-
-.time-content {
-  color: #9F9F9F;
-  font-size: 15px;
-}
-
-.time-content i {
-  margin-left: 2px;
 }
 
 .time-content select {
@@ -243,17 +303,6 @@
   z-index: 1;
 }
 
-// .course-structure .dropzone li::before{
-//   content: '';
-//   position: absolute;
-//   top: .9em;
-//   left: -4em;
-//   width: 4em;
-//   height: .2em;
-//   opacity: 1;
-//   background: dodgerblue;
-//   z-index: -1;
-// }
 
 .course-structure .dropzone li.is-moving {
   opacity: 0.3;

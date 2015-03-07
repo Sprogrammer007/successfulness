@@ -22,15 +22,6 @@ emberViews = ->
 
     afterRenderEvent: ->
       $('.tse-scrollable').TrackpadScrollEmulator();
-      $('#start_date, #end_date').datepicker
-        changeYear      : true
-        changeMonth     : true
-        yearRange       : 'c:c+5'
-        constrainInput  : true
-        showAnim        : "fade"
-        dateFormat      : "yy-mm-dd"
-        showOn          : 'both'
-        buttonText      : '<i class="fa fa-calendar"></i>'
 
   Successfulness.CoursesView = Ember.View.extend
     elementId: 'courses'
@@ -60,6 +51,55 @@ emberViews = ->
         maxSize:     [200, 320]
         setSelect:   [ 0, 0, 200, 320]  
 
-  Successfulness.EditCourseView = Ember.View.extend();
+  Successfulness.CourseView = Ember.View.extend
+    templateName: "course"
+    didInsertElement: ->
+      @_super();
+      Ember.run.scheduleOnce('afterRender', this, @.afterRenderEvent)
+
+    afterRenderEvent: ->
+      $('[data-toggle="tooltip"]').tooltip()
+
+  Successfulness.FocusInputComponent = Ember.TextField.extend
+    becomeFocused: (->
+      @$().focus()
+      return
+    ).on('didInsertElement')
+
+    focusOut: ->
+      this.sendAction('action', this.get('value'));
+
+  # Custom Dropdownmenu select
+  Successfulness.LiOption = Em.SelectOption.extend
+    tagName: 'li'
+
+    click: (e)->
+      if @$().hasClass('unselectable') || @$().hasClass('active')
+        return e.preventDefault()
+
+      @$().toggleClass('active')
+      @$().siblings('.active').toggleClass('active unselectable')
+
+  Successfulness.DropdownMenuView = Ember.Select.extend
+    classNames: ['dropdown-menu']
+    tagName: 'ul'
+    optionView: Successfulness.LiOption    
+
+    didInsertElement: ->
+      @_super();
+      Ember.run.scheduleOnce('afterRender', this, @.afterRenderEvent)
+
+    afterRenderEvent: ->
+      that = @$()
+      @$().parent('.dropdown').on 'show.bs.dropdown', ->
+        that.parent('[data-toggle="tooltip"]').tooltip('destroy')
+
+      @$().parent('.dropdown').on 'hide.bs.dropdown', ->
+        if that.find('.active').hasClass('unselectable')
+          console.log("test")
+          return false
+        that.find('.active').addClass('unselectable')
+    click: (e) ->
+      @$().toggleClass('open')
 
 $(document).ready(emberViews)

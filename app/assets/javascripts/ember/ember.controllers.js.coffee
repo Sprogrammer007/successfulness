@@ -11,6 +11,9 @@ emberControllers = ->
       openLeft: ->
         @set('leftToggleState', true) 
 
+  Successfulness.CourseController = Ember.ObjectController.extend
+    names2: ["test", "test2"]
+    names: [{firstName: "Yehuda", id: 1},{firstName: "Tom",    id: 2}]
 
   Successfulness.ModalController = Ember.ObjectController.extend
     content: '',

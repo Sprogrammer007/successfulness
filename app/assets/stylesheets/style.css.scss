@@ -42,7 +42,9 @@ h1, h2, h3, h4 {
   float: left;
 }
 
-.form-control, .btn {
+.form-control, .btn, 
+.tooltip .tooltip-inner,
+.dropdown-menu  {
   border-radius: 0;
 }
 
@@ -65,7 +67,6 @@ h1, h2, h3, h4 {
 .radius-r-5 {
   border-radius: 5px;
 }
-
 
 .uppercase {
   text-transform: uppercase;
@@ -140,7 +141,7 @@ h1, h2, h3, h4 {
 }
 
 .mtl {
-  margin-top: 1.5em;
+  margin-top: 1.5em !important;
 }
 
 .mbs {
@@ -151,11 +152,11 @@ h1, h2, h3, h4 {
   margin-bottom: 1.15em;
 }
 
-.mgl {
-  margin-bottom: 1.5em;
+.mbl {
+  margin-bottom: 1.5em !important;
 }
 
-.mgtb-l {
+.mtb-l {
   margin-bottom: 2.5em;
   margin-top: 2.5em;
 }
