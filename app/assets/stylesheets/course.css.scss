@@ -36,10 +36,6 @@
   border-color: #5285B8;
 }
 
-.new-course, .course-item {
-  padding: 10px 10px 10px 30px;
-}
-
 .course-header {
   font-size: 20px;
   font-weight: bold;
@@ -55,6 +51,11 @@
   color: #f47618;
   line-height: 31px;
   cursor: pointer;
+  padding: 10px 10px 10px 30px;
+}
+
+.course-item .course-buttons a > i {
+  color: #f47618;
 }
 
 .new-course input {
@@ -94,6 +95,10 @@
   border-bottom: 1px solid #dedede;
 }
 
+.course-details .section:hover {
+  cursor: pointer;
+}
+
 .course-details.col-lg-8 {
   padding: 0;
 }
@@ -106,19 +111,23 @@
 
 .header .course-status {
   display: inline-block;
-  width: 120px;
   text-align: center;
   border-right: 1px solid #dedede;
   margin-right: 20px;
-  padding: 10px;
+  padding: 10px 20px;
 }
 
 .header .course-status:hover {
   cursor: pointer;
 }
 
-.header .course-status.draft {
+.header .course-status.Draft {
   background-color: #dedede;
+}
+
+.header .course-status.Tom, .header .course-status.Tom i  {
+  background-color: #D6442B;
+  color: #FFF
 }
 
 .header .title {
@@ -137,8 +146,9 @@
 
 .course-details .course-description {
   font-size: 16px;
-  padding: 30px;
+  padding-left: 50px;
   color: #A5A5A5;
+  height: 360px;
 }
 
 .course-details .nav .center-block {
@@ -197,18 +207,8 @@
   cursor: pointer;
 }
 
-.course-date button {
-  position: absolute;
-  background-color: transparent;
-  border-radius: 0px;
-  top: 7px !important;
-  left: 8px !important;
-  border: none;
-  z-index: 10;
-}
-
 .course-settings .section {
-  border-color: #AAA;
+  border-color: #dedede;
 }
 
 .course-settings .part{
@@ -216,28 +216,26 @@
   margin: auto;
   font-size: 15px;
 }
+.part .col-lg-9 {
+  padding-left: 0;
+}
 
 .part .option {
   display: inline-block;
-  padding: 10px 20px;
-  border-left:  1px solid #AAA;
+  padding: 10px 15px;
+  border-left: 1px solid #dedede; 
 }
 
-.course-thumb input[type='file'],
-.course-prereq input[type=checkbox],
-.course-student input[type=radio] {
+.part .option:first-child {
+  border-left: none;
+}
+
+.course-thumb input[type='file'] {
   position: absolute;
   top: -9999px;
   left: -9999px;
 }
 
-.time-content select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: none;
-  cursor: pointer;
-}
 
 /* Course Structure */
 

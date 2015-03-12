@@ -15,7 +15,6 @@ class CoursesController < ApplicationController
   end
 
   def create
-    Rails.logger.warn "create"
     @course = current_user.courses.create(newCourseParams)
     if @course.save()
       respond_to do |format|
@@ -50,7 +49,7 @@ class CoursesController < ApplicationController
 
       params.require(:course).permit(:title, :thumbnail, :course_category_id, :description, :start_date, :end_date,
         :prerequisites, :student_limit, :max_student, :course_type, :note, :price, 
-        :charge_method, :discount).merge(start_date: startDate, end_date: endDate)
+        :payment_method, :discount).merge(start_date: startDate, end_date: endDate)
       
     end
 

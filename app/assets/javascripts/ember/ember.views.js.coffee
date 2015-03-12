@@ -27,7 +27,7 @@ emberViews = ->
     elementId: 'courses'
     actions:
       success: (course)->
-        this.get('controller').transitionToRoute('course', course);
+        @get('controller').transitionToRoute('course', course);
 
   Successfulness.ThumbView = Ember.TextField.extend
     type: 'file'
@@ -52,13 +52,39 @@ emberViews = ->
         setSelect:   [ 0, 0, 200, 320]  
 
   Successfulness.CourseView = Ember.View.extend
-    templateName: "course"
     didInsertElement: ->
       @_super();
-      Ember.run.scheduleOnce('afterRender', this, @.afterRenderEvent)
+      Ember.run.scheduleOnce('afterRender', this, @afterRenderEvent)
 
     afterRenderEvent: ->
-      $('[data-toggle="tooltip"]').tooltip()
+      controller = @get('controller')
+      $('[data-toggle="tooltip"]').addClass(@get('controller').get('status')).tooltip()
+
+      controller.transitionToRoute('course.settings', controller.get('model'));
+
+  Successfulness.CourseSettingsView = Ember.View.extend
+
+    didInsertElement: ->
+      @_super();
+      Ember.run.scheduleOnce('afterRender', this, @afterRenderEvent)
+
+    afterRenderEvent: ->
+      controller = @get('controller')
+      $('#daterange').daterangepicker {
+          format: 'MMM DD, YY'
+          minDate: moment().format('MMM, DD, YY')
+          opens: 'center'
+          buttonClasses: ['btn']
+          cancelClass: 'btn-danger'
+          ranges: 
+            '1 Day': [moment(), moment()],
+            '7 Days': [moment(), moment().add(6, 'days')],
+            '30 Days': [moment(), moment().add(29, 'days')]
+          timePicker: true
+        }, (start, end, label) ->
+          controller.set('start_date', start.format('MMM, DD, YY'))
+          controller.set('end_date', end.format('MMM, DD, YY'))
+          return
 
   Successfulness.FocusInputComponent = Ember.TextField.extend
     becomeFocused: (->
@@ -79,6 +105,7 @@ emberViews = ->
 
       @$().toggleClass('active')
       @$().siblings('.active').toggleClass('active unselectable')
+      @get('controller').set('status', e.target.innerHTML)
 
   Successfulness.DropdownMenuView = Ember.Select.extend
     classNames: ['dropdown-menu']
@@ -96,10 +123,10 @@ emberViews = ->
 
       @$().parent('.dropdown').on 'hide.bs.dropdown', ->
         if that.find('.active').hasClass('unselectable')
-          console.log("test")
           return false
         that.find('.active').addClass('unselectable')
+        
     click: (e) ->
-      @$().toggleClass('open')
+      
 
 $(document).ready(emberViews)

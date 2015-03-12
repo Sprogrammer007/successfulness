@@ -16,7 +16,7 @@
   </script>
 
   <script type="text/x-handlebars" data-template-name="course">
-    <%= render 'edit'  %>
+    <%= render 'details'  %>
   </script>
 
   <script type="text/x-handlebars" data-template-name="components/course-list">
@@ -51,18 +51,12 @@
     {{/if}}
   </script>
 
-  <script type="text/x-handlebars" data-template-name="components/dropdown-list">
-    {{#if isClicked}}
-      {{focus-input action="add"}}
-    {{else}}
-      {{#if course}}
-        {{course.title}}
-      {{else}}
-        <i class="fa fa-plus"></i> New Course
-      {{/if}}
-    {{/if}}
+  <script type="text/x-handlebars" data-template-name="course/settings">
+    <%= render 'settings'  %>
   </script>
 
+  <%= javascript_include_tag "moment.min" %>
+  <%= javascript_include_tag "daterangepicker" %>
 
 <% end %>
 

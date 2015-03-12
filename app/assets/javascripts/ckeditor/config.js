@@ -11,5 +11,6 @@ CKEDITOR.editorConfig = function (config) {
     { name: 'colors' }
   ];
   config.floatSpaceDockedOffsetX = 10;
+  config.removePlugins = 'elementspath, resize';
   // ... rest of the original config.js  ...
 }

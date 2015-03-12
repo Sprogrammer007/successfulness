@@ -12,8 +12,18 @@ emberControllers = ->
         @set('leftToggleState', true) 
 
   Successfulness.CourseController = Ember.ObjectController.extend
-    names2: ["test", "test2"]
-    names: [{firstName: "Yehuda", id: 1},{firstName: "Tom",    id: 2}]
+    names: [{firstName: "Published", id: 1}, {firstName: "Private",  id: 2}]
+    maxStudent: (->
+      if (@get('max_student') == 0)
+        return 'None'
+      else
+        return @get('max_student')
+      ).property('max_student')
+
+    actions:
+      edit: ->
+        console.log("test")
+        CKEDITOR.replace( 'editor' );
 
   Successfulness.ModalController = Ember.ObjectController.extend
     content: '',

@@ -14,5 +14,7 @@ Rails.application.config.assets.precompile += %w(
   jquery.Jcrop.min.js
   jquery.Jcrop.min.css
   jquery.ui.dragndrop.js
+  moment.min.js
+  daterangepicker.js
 )
 

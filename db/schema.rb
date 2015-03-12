@@ -19,22 +19,22 @@ ActiveRecord::Schema.define(version: 20150212053226) do
   create_table "courses", force: true do |t|
     t.integer  "user_id"
     t.integer  "course_category_id"
+    t.string   "collaborators"
     t.string   "title"
     t.text     "description"
-    t.text     "note"
     t.string   "course_type"
     t.decimal  "price"
-    t.string   "charge_method"
-    t.boolean  "student_limit"
-    t.integer  "max_student"
+    t.string   "payment_method"
+    t.integer  "max_student",            default: 0
     t.integer  "discount"
     t.string   "thumbnail_file_name"
     t.string   "thumbnail_content_type"
     t.integer  "thumbnail_file_size"
     t.datetime "thumbnail_updated_at"
     t.string   "prerequisites"
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.datetime "start_date",             default: '2015-03-10 00:00:00'
+    t.datetime "end_date",               default: '2015-03-10 23:59:59'
+    t.string   "status",                 default: "draft"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
