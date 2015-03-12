@@ -42,7 +42,9 @@ h1, h2, h3, h4 {
   float: left;
 }
 
-.form-control, .btn {
+.form-control, .btn, 
+.tooltip .tooltip-inner,
+.dropdown-menu  {
   border-radius: 0;
 }
 
@@ -60,12 +62,12 @@ h1, h2, h3, h4 {
   background-color: #3E3D3E;
   border-color: #5f5e61;
 }
+
 // Style Helper
 
 .radius-r-5 {
   border-radius: 5px;
 }
-
 
 .uppercase {
   text-transform: uppercase;
@@ -140,7 +142,7 @@ h1, h2, h3, h4 {
 }
 
 .mtl {
-  margin-top: 1.5em;
+  margin-top: 1.5em !important;
 }
 
 .mbs {
@@ -151,11 +153,11 @@ h1, h2, h3, h4 {
   margin-bottom: 1.15em;
 }
 
-.mgl {
-  margin-bottom: 1.5em;
+.mbl {
+  margin-bottom: 1.5em !important;
 }
 
-.mgtb-l {
+.mtb-l {
   margin-bottom: 2.5em;
   margin-top: 2.5em;
 }
@@ -220,3 +222,95 @@ h1, h2, h3, h4 {
   white-space: nowrap;
 }
 
+/* Loader */
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content; 
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+}
+
+@include keyframes(title) {
+  0%   { opacity:0; right:130px; }
+  48%  { opacity:0; right:130px; }
+  52%  { opacity:1; right:30px; }
+  70%  { opacity:1; right:30px; }
+  100% { opacity:0; right:30px; }
+}
+
+@include keyframes(fade) {
+  0%   { opacity:1; }
+  100% { opacity:0; }
+}
+
+@include keyframes(blink) {
+  0%    { opacity:0; }
+  5%    { opacity:1; }
+  10%   { opacity:0; }
+  15%   { opacity:1; }
+  20%   { opacity:0; }
+  25%   { opacity:1; }
+  30%   { opacity:0; }
+  35%   { opacity:1; }
+  40%   { opacity:0; right:-21px; }
+  45%   { opacity:1; right:80px; }
+  50%   { opacity:0; right:-21px; }
+  51%   { right:-21px; }
+  55%   { opacity:1; }
+  60%   { opacity:0; }
+  65%   { opacity:1; }
+  70%   { opacity:0; }
+  75%   { opacity:1; }
+  80%   { opacity:0; }
+  85%   { opacity:1; }
+  90%   { opacity:0; right:-21px; }
+  95%   { opacity:1; right:80px; }
+  96%   { right:-21px; }
+  100%  { opacity:0; right:-21px; }
+}
+
+$shadow: #bce4ff;
+
+.wrap {
+  position:absolute;
+  top:50%; left:50%; 
+  margin-left:-80px; 
+  margin-top:-40px;
+}
+
+.loading {
+  position:relative;
+  text-align:right;
+  height:20px; width:150px;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 0 0 6px $shadow;
+  span {
+    display:block;
+    text-transform:uppercase;
+    position:absolute;
+    right:30px;
+    height:20px; width:200px;
+    line-height:20px;
+    &:after {
+      content:"";
+      display:block;
+      position:absolute;
+      top:-2px; right:-21px;
+      height:20px; width:16px;
+      background: #eaf7ff;
+      @include box-shadow(0 0 15px $shadow);
+      @include animation(blink 3.4s infinite); 
+    }
+    &.title {
+      @include animation(title 3.4s linear infinite);
+    }
+    &.text {
+      @include animation(title 3.4s linear 1.7s infinite);
+      opacity:0;
+    }
+  }
+}

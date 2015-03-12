@@ -6,17 +6,16 @@ class CreateCourses < ActiveRecord::Migration
       t.string :collaborators
       t.string :title
       t.text :description
-      t.text :note
       t.string :course_type
       t.decimal :price
-      t.string :charge_method
-      t.boolean :student_limit
-      t.integer :max_student
+      t.string :payment_method
+      t.integer :max_student, default: 0
       t.integer :discount
       t.attachment :thumbnail
       t.string :prerequisites
-      t.datetime :start_date
-      t.datetime :end_date
+      t.datetime :start_date, default: Date.today.beginning_of_day
+      t.datetime :end_date, default: Date.today.end_of_day
+      t.string :status, default: 'draft'
       t.timestamps
     end
 

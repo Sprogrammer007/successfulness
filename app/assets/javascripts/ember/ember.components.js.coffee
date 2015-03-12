@@ -92,14 +92,5 @@ emberComponents = ->
       return Successfulness.Courses 
     ).property()
 
-  Successfulness.FocusInputComponent = Ember.TextField.extend
-    becomeFocused: (->
-      @$().focus()
-      return
-    ).on('didInsertElement')
-
-    focusOut: ->
-      this.sendAction('action', this.get('value'));
-
 
 $(document).ready(emberComponents)

@@ -32,7 +32,6 @@
   {{/modal-dialog}}
 </script>
 
-
 <script type="text/x-handlebars" data-template-name="components/modal-dialog">
   <div class="overlay" {{action "close"}}> </div>
   <div class="modal-dialog">
@@ -42,6 +41,16 @@
         <button type="button" class="btn btn-default" {{action "close"}}>Close</button>
         <button type="button" class="btn btn-theme-dark">{{confirmBotton}}</button>
       </div>
+    </div>
+  </div>
+</script>
+
+
+<script type="text/x-handlebars" data-template-name="_loader">
+  <div class="wrap">
+    <div class="loading">
+      <span class="title">loading</span>
+      <span class="text">Ah.....</span>
     </div>
   </div>
 </script>

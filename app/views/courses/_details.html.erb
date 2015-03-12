@@ -1,0 +1,29 @@
+
+<div class="header section">
+  <div class="course-status dropdown"  {{bind-attr class="status"}} data-toggle="tooltip" data-placement="bottom" title="Course Status">
+    <div data-toggle="dropdown">
+      <i class="fa fa-info"></i> {{capitalize status}}
+      <span class="caret"></span>
+    </div>
+    {{view 'dropdown-menu' content=names  optionValuePath="content.id" optionLabelPath="content.firstName"}}
+  </div>
+  {{course-title course=this classNames="title"}}
+</div>
+ 
+<div class="nav section clearfix">
+
+  <div class="btn-group btn-group-justified center-block">
+    {{#link-to 'course.settings' class="btn btn-default" href=false}}
+      <i class="fa fa-cog"></i> Settings
+    {{/link-to}}
+    {{#link-to 'course.students' class="btn btn-default" href=false}}
+      <i class="fa fa-users"></i>  Students
+    {{/link-to}}
+
+    {{#link-to 'course.feedbacks' class="btn btn-default" href=false}}
+      <i class="fa fa-comments"></i> Feedbacks
+    {{/link-to}}
+  </div>
+</div>
+
+{{outlet "details"}}

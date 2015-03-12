@@ -16,28 +16,7 @@
   </script>
 
   <script type="text/x-handlebars" data-template-name="course">
-    <div class="course-thumb">
-   
-      <%= image_tag("image_placeholder.png") %>
-
-    </div>
-    <div class="course-header section">
-      {{course-title course=this classNames="title"}}
-    </div>
-    <div class="buttons section">
-      <div class="asdfg">
-        <i class="fa fa-calendar"></i> Mar 04 - Apr 16
-      </div>
-      <div class="asdfg">
-        <i class="fa fa-users"></i> Student Limit
-      </div>
-      <div class="asdfg">
-        <i class="fa fa-usd"></i> Course Price
-      </div>
-    </div>
-    <div class="course-description section">
-      Click to add course description
-    </div>
+    <%= render 'details'  %>
   </script>
 
   <script type="text/x-handlebars" data-template-name="components/course-list">
@@ -71,6 +50,13 @@
       {{/if}}
     {{/if}}
   </script>
+
+  <script type="text/x-handlebars" data-template-name="course/settings">
+    <%= render 'settings'  %>
+  </script>
+
+  <%= javascript_include_tag "moment.min" %>
+  <%= javascript_include_tag "daterangepicker" %>
 
 <% end %>
 

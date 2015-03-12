@@ -1,6 +1,9 @@
 emberRoutes = ->
   Ember.Router.map ->
-    @resource('course', { path: '/:title' })
+    @resource 'course', { path: '/:title' }, ->
+      @route('settings')
+      @route('students')
+      @route('feedbacks')
 
   Successfulness.ApplicationRoute = Ember.Route.extend
     actions:
@@ -31,4 +34,16 @@ emberRoutes = ->
       @_super
       @render('course', {into: 'courses'});
 
+  Successfulness.CourseSettingsRoute = Em.Route.extend
+    model: ->
+      return @modelFor('course')
+
+    renderTemplate: (controller, model)->
+      that = @
+      @_super
+      @loader.start(that)
+      window.setTimeout (-> 
+        return that.render('course.settings', {into: 'course', outlet: 'details', controller: 'course'})
+      ), 500
+      
 $(document).ready(emberRoutes)
