@@ -5,7 +5,6 @@ ruby '2.1.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 gem "paperclip", "~> 4.2"
-gem 'active_model_serializers'
 
 # Use MySQL as the database for Active Record
 # gem 'pg'
