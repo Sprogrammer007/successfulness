@@ -1,8 +1,8 @@
 
 <div class="header section">
-  <div class="course-status dropdown"  {{bind-attr class="status"}} data-toggle="tooltip" data-placement="bottom" title="Course Status">
+  <div class="course-status dropdown"  {{bind-attr class="status"}} >
     <div data-toggle="dropdown">
-      <i class="fa fa-info"></i> {{capitalize status}}
+      {{icon-tooltip class="fa-exclamation" data-placement="bottom" title="Course Status"}} {{capitalize status}}
       <span class="caret"></span>
     </div>
     {{view 'dropdown-menu' content=names  optionValuePath="content.id" optionLabelPath="content.firstName"}}

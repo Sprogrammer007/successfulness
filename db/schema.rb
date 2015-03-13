@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20150212053226) do
   create_table "courses", force: true do |t|
     t.integer  "user_id"
     t.integer  "course_category_id"
-    t.string   "collaborators"
+    t.text     "collaborators",          default: [],                    array: true
     t.string   "title"
     t.text     "description"
     t.string   "course_type"
@@ -31,9 +31,9 @@ ActiveRecord::Schema.define(version: 20150212053226) do
     t.string   "thumbnail_content_type"
     t.integer  "thumbnail_file_size"
     t.datetime "thumbnail_updated_at"
-    t.string   "prerequisites"
-    t.datetime "start_date",             default: '2015-03-10 00:00:00'
-    t.datetime "end_date",               default: '2015-03-10 23:59:59'
+    t.text     "prerequisites",          default: [],                    array: true
+    t.datetime "start_date",             default: '2015-03-12 00:00:00'
+    t.datetime "end_date",               default: '2015-03-12 23:59:59'
     t.string   "status",                 default: "draft"
     t.datetime "created_at"
     t.datetime "updated_at"

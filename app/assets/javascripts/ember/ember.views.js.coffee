@@ -58,7 +58,7 @@ emberViews = ->
 
     afterRenderEvent: ->
       controller = @get('controller')
-      $('[data-toggle="tooltip"]').addClass(@get('controller').get('status')).tooltip()
+      $('.course-status').addClass(@get('controller').get('status'))
 
       controller.transitionToRoute('course.settings', controller.get('model'));
 
@@ -82,8 +82,8 @@ emberViews = ->
             '30 Days': [moment(), moment().add(29, 'days')]
           timePicker: true
         }, (start, end, label) ->
-          controller.set('start_date', start.format('MMM, DD, YY'))
-          controller.set('end_date', end.format('MMM, DD, YY'))
+          controller.set('start_date', start.format('MMM DD, YYYY'))
+          controller.set('end_date', end.format('MMM DD, YYYY'))
           return
 
   Successfulness.FocusInputComponent = Ember.TextField.extend
