@@ -1,15 +1,38 @@
 <div class="course-settings section clearfix">
   <div class="part section clearfix mtl">
-    <div class="col-lg-9" style="border-left: 1px solid #dedede; margin-left: 24.9%">
+    <div class="col-lg-12">
 
       <div id="daterange" class='option'>
-        <i class="fa fa-calendar"></i> <b>Duration:</b> {{start_date}} - {{end_date}}
+        {{icon-tooltip class="fa-calendar" data-placement="bottom" title="Course Duration"}} {{start_date}} - {{end_date}}
         <span class="caret"></span>       
       </div>
-      
+
       <div class='option dropdown'>
         <div data-toggle="dropdown">
-          <i class="fa fa-users"></i> <b>Student Limit:</b> {{maxStudent}}
+          {{icon-tooltip class="fa-code-fork" data-placement="bottom" title="Course Category"}} <b>Category:</b> {{maxStudent}}
+          <span class="caret"></span>
+        </div>
+        {{view 'dropdown-menu' content=names  optionValuePath="content.id" optionLabelPath="content.firstName"}}
+      </div>
+
+      <div class='option dropdown'>
+        <div data-toggle="dropdown">
+          {{icon-tooltip class="fa-users" data-placement="bottom" title="Max Available Spaces"}} <b>Spaces:</b> {{maxStudent}}
+          <span class="caret"></span>
+        </div>
+        {{view 'dropdown-menu' content=names  optionValuePath="content.id" optionLabelPath="content.firstName"}}
+      </div>      
+      <div class='option dropdown'>
+        <div data-toggle="dropdown">
+          {{icon-tooltip class="fa-money" data-placement="bottom" title="Max Available Spaces"}} <b>Cost:</b> $2999/Month
+          <span class="caret"></span>
+        </div>
+        {{view 'dropdown-menu' content=names  optionValuePath="content.id" optionLabelPath="content.firstName"}}
+      </div> 
+
+      <div class='option dropdown'>
+        <div data-toggle="dropdown">
+          {{icon-tooltip class="fa-scissors" data-placement="bottom" title="Course Discounts"}} <b>Discount:</b> 10%
           <span class="caret"></span>
         </div>
         {{view 'dropdown-menu' content=names  optionValuePath="content.id" optionLabelPath="content.firstName"}}
@@ -32,35 +55,49 @@
       </div>
     </div>
     <div class="col-lg-9">
-      <div class="course-description vertical-center">
-        <div  {{action 'edit'}}>
-          <div id="editor">
-            Click to add course description
-          </div>
+      <div class="course-description" {{action 'edit'}}>
+        <div id="description-placeholder">
+          Click to add course description
         </div>
+ 
       </div>
     </div>
   </div>
 
   <div class="part clearfix mbl">
-    <div class="col-lg-9" style="border-left: 1px solid #dedede; margin-left: 24.9%">
-      <div class='option dropdown'>
-        <div data-toggle="dropdown">
-          <i class="fa fa-users"></i> <b>Price:</b> $2999/Month
-          <span class="caret"></span>
-        </div>
-        {{view 'dropdown-menu' content=names  optionValuePath="content.id" optionLabelPath="content.firstName"}}
-      </div> 
-      <div class='option dropdown'>
-        <div data-toggle="dropdown">
-          <i class="fa fa-users"></i> <b>Discount:</b> 10%
-          <span class="caret"></span>
-        </div>
-        {{view 'dropdown-menu' content=names  optionValuePath="content.id" optionLabelPath="content.firstName"}}
+    <div class="col-lg-12">
+
+      <div class="option">
+        <b>Prerequisites</b>
       </div>
+      
+      <div class="option course-prerequisites">
+        {{#each prerequisite in prerequisites}}
+          <span class="label label-custom">{{prerequisite}}</span>
+        {{/each}}
+        <i class="fa fa-plus"></i>
+        {{#unless prerequisites.any}} Add {{/unless}}
+      </div>
+
     </div>
   </div>
 </div>
-<div class="course-settings section clearfix">
-  
+
+<div class="course-structure clearfix">
+  <div class="btn-group">
+    <div type="button" class="btn btn-add">
+      <i class="fa fa-plus"></i> Add Multi Section
+    </div>
+    <div type="button" class="btn btn-add">
+      <i class="fa fa-plus"></i> Add Multi Section
+    </div>
+  </div>  
+  <div class="btn-group pull-right">
+    <div type="button" class="btn btn-save">
+      <i class="fa fa-floppy-o"></i> Save
+    </div>
+    <div type="button" class="btn btn-redo">
+      <i class="fa fa-repeat"></i> Redo
+    </div>
+  </div>
 </div>

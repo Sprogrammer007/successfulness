@@ -11,6 +11,7 @@
 
 
 ready = ->
+
   window.Successfulness = Ember.Application.create()
 
   Em.Handlebars.helper 'capitalize', (string) -> 
@@ -22,7 +23,6 @@ ready = ->
     initialize: (c, a) ->
       a.register('loader:main', Successfulness.Loader);
       a.inject('route', 'loader', 'loader:main');
-
-
-
+      return
+  
 $(document).ready(ready)

@@ -3,7 +3,7 @@ class CreateCourses < ActiveRecord::Migration
     create_table :courses do |t|
       t.references :user
       t.references :course_category
-      t.string :collaborators
+      t.text :collaborators, array: true, default: []
       t.string :title
       t.text :description
       t.string :course_type
@@ -12,7 +12,7 @@ class CreateCourses < ActiveRecord::Migration
       t.integer :max_student, default: 0
       t.integer :discount
       t.attachment :thumbnail
-      t.string :prerequisites
+      t.text :prerequisites, array: true, default: []
       t.datetime :start_date, default: Date.today.beginning_of_day
       t.datetime :end_date, default: Date.today.end_of_day
       t.string :status, default: 'draft'

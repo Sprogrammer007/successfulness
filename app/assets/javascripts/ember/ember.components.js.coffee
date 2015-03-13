@@ -92,5 +92,14 @@ emberComponents = ->
       return Successfulness.Courses 
     ).property()
 
+  # Icon Component with Tooltip
+  Successfulness.IconTooltipComponent = Ember.Component.extend
+    tagName: 'i'
+    attributeBindings: ['data-placement', 'data-toggle=', 'title']
+    'data-toggle': 'tooltip'
+    classNames: ['fa']
+
+    didInsertElement: ->
+      @$().tooltip()
 
 $(document).ready(emberComponents)
