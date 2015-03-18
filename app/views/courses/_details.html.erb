@@ -1,29 +1,36 @@
-
-<div class="header section">
-  <div class="course-status dropdown"  {{bind-attr class="status"}} >
-    <div data-toggle="dropdown">
-      {{icon-tooltip class="fa-exclamation" data-placement="bottom" title="Course Status"}} {{capitalize status}}
-      <span class="caret"></span>
+<div class="course-top">
+  <div class="header section">
+    <div class="course-status dropdown"  {{bind-attr class="status"}} >
+      <div data-toggle="dropdown">
+        {{icon-tooltip class="fa-exclamation" data-placement="bottom" title="Course Status"}} {{capitalize status}}
+        <span class="caret"></span>
+      </div>
+      {{view 'dropdown-menu' content=names  optionValuePath="content.id" optionLabelPath="content.firstName"}}
     </div>
-    {{view 'dropdown-menu' content=names  optionValuePath="content.id" optionLabelPath="content.firstName"}}
+    {{course-title course=this classNames="title"}}
   </div>
-  {{course-title course=this classNames="title"}}
-</div>
- 
-<div class="nav section clearfix">
+   
+  <div class="nav section clearfix">
 
-  <div class="btn-group btn-group-justified center-block">
-    {{#link-to 'course.settings' class="btn btn-default" href=false}}
-      <i class="fa fa-cog"></i> Settings
-    {{/link-to}}
-    {{#link-to 'course.students' class="btn btn-default" href=false}}
-      <i class="fa fa-users"></i>  Students
-    {{/link-to}}
+    <div class="btn-group btn-group-justified center-block">
+      {{#link-to 'course.settings' class="btn btn-default" href=false}}
+        <i class="fa fa-cog"></i> Settings
+      {{/link-to}}
+      {{#link-to 'course.students' class="btn btn-default" href=false}}
+        <i class="fa fa-users"></i>  Students
+      {{/link-to}}
 
-    {{#link-to 'course.feedbacks' class="btn btn-default" href=false}}
-      <i class="fa fa-comments"></i> Feedbacks
-    {{/link-to}}
+      {{#link-to 'course.feedbacks' class="btn btn-default" href=false}}
+        <i class="fa fa-comments"></i> Feedbacks
+      {{/link-to}}
+    </div>
   </div>
 </div>
 
-{{outlet "details"}}
+<div class="course-content"> 
+  <div class="tse-scrollable course-details-scroller">
+    <div class="tse-content wrapper">
+      {{outlet "details"}}
+    </div>
+  </div>
+</div>

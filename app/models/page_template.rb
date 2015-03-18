@@ -1,6 +1,5 @@
 class PageTemplate < ActiveRecord::Base
   
-  has_many :medias
 
   has_attached_file :thumbnail, :default_url => "no-image.png"
   validates_attachment :thumbnail, :presence => true,

@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 20150212053226) do
     t.integer  "thumbnail_file_size"
     t.datetime "thumbnail_updated_at"
     t.text     "prerequisites",          default: [],                    array: true
-    t.datetime "start_date",             default: '2015-03-12 00:00:00'
-    t.datetime "end_date",               default: '2015-03-12 23:59:59'
+    t.datetime "start_date",             default: '2015-03-16 00:00:00'
+    t.datetime "end_date",               default: '2015-03-16 23:59:59'
     t.string   "status",                 default: "draft"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -69,18 +69,15 @@ ActiveRecord::Schema.define(version: 20150212053226) do
   add_index "page_templates", ["category"], name: "index_page_templates_on_category", using: :btree
 
   create_table "sections", force: true do |t|
-    t.string   "collaborators"
     t.string   "title"
+    t.integer  "delay"
     t.string   "note"
-    t.string   "section_type"
+    t.string   "order"
     t.integer  "course_id"
-    t.integer  "user_id"
-    t.integer  "page_template_id"
+    t.text     "medias"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "sections", ["section_type"], name: "index_sections_on_section_type", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                      default: "", null: false

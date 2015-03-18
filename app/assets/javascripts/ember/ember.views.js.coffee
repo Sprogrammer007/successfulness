@@ -21,7 +21,7 @@ emberViews = ->
       Ember.run.scheduleOnce('afterRender', this, @.afterRenderEvent)
 
     afterRenderEvent: ->
-      $('.tse-scrollable').TrackpadScrollEmulator();
+      $('.tse-scrollable').TrackpadScrollEmulator()
 
   Successfulness.CoursesView = Ember.View.extend
     elementId: 'courses'
@@ -52,18 +52,21 @@ emberViews = ->
         setSelect:   [ 0, 0, 200, 320]  
 
   Successfulness.CourseView = Ember.View.extend
+    classNames: ['course-details-wrapper']
+
     didInsertElement: ->
       @_super();
       Ember.run.scheduleOnce('afterRender', this, @afterRenderEvent)
 
-    afterRenderEvent: ->
-      controller = @get('controller')
-      $('.course-status').addClass(@get('controller').get('status'))
+    afterRenderEvent: (->
+        $('.course-details-scroller').TrackpadScrollEmulator();
+        controller = @get('controller')
+        $('.course-status').addClass(@get('controller').get('status'))
 
-      controller.transitionToRoute('course.settings', controller.get('model'));
+        controller.transitionToRoute('course.settings', controller.get('model'));
+      ).observes('controller.model')
 
   Successfulness.CourseSettingsView = Ember.View.extend
-
     didInsertElement: ->
       @_super();
       Ember.run.scheduleOnce('afterRender', this, @afterRenderEvent)
@@ -85,6 +88,7 @@ emberViews = ->
           controller.set('start_date', start.format('MMM DD, YYYY'))
           controller.set('end_date', end.format('MMM DD, YYYY'))
           return
+
 
   Successfulness.FocusInputComponent = Ember.TextField.extend
     becomeFocused: (->
@@ -126,7 +130,4 @@ emberViews = ->
           return false
         that.find('.active').addClass('unselectable')
         
-    click: (e) ->
-      
-
 $(document).ready(emberViews)

@@ -5,8 +5,8 @@ emberRoutes = ->
       @route('students')
       @route('feedbacks')
       
-  # Successfulness.Router.reopen
-  #   location: 'none'
+  Successfulness.Router.reopen
+    location: 'none'
 
   Successfulness.ApplicationRoute = Ember.Route.extend
     actions:

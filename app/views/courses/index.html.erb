@@ -10,7 +10,7 @@
         {{course-list courses='<%= json_for(@courses) %>'}}
       </div>
     </div>
-    <div class="course-details col-lg-8 panel-right">
+    <div class="col-lg-8 panel-right">
       {{outlet}}
     </div>
   </script>
@@ -53,6 +53,10 @@
 
   <script type="text/x-handlebars" data-template-name="course/settings">
     <%= render 'settings'  %>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="components/section-item">
+    {{yield}}
   </script>
 
   <%= javascript_include_tag "moment.min" %>

@@ -3,7 +3,6 @@ class User < ActiveRecord::Base
   attr_accessor :login
 
   serialize :profile
-  has_many :sections, dependent: :destroy
   has_many :courses
 
   has_attached_file :display_image, :default_url => "no-image.png"

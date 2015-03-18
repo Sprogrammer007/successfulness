@@ -47,18 +47,6 @@ emberComponents = ->
         }
       );
 
-
-  Successfulness.CkTextareaComponent = Ember.Component.extend
-    didInsertElement: ->
-      CKEDITOR.replace( @get('id'),
-        height: @get('height')
-        on: {
-          blur: (event) ->
-            content = event.editor.getData()
-            #TODO Ajax content.getData()
-        }
-      );
-
   # New Course Component
   Successfulness.CourseTitleComponent = Ember.Component.extend
     isClicked: (-> 
@@ -91,6 +79,9 @@ emberComponents = ->
       Successfulness.Courses = JSON.parse(this.get('courses').replace(/&quot;/g,'"'))
       return Successfulness.Courses 
     ).property()
+
+  Successfulness.SectionItemComponent = Ember.Component.extend
+    tagName: 'li'
 
   # Icon Component with Tooltip
   Successfulness.IconTooltipComponent = Ember.Component.extend

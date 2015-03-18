@@ -35,13 +35,6 @@ h1, h2, h3, h4 {
   margin-top: 0;
 }
 
-.item {
-  width: 146px;
-  height: 200px;
-  margin: 0px 20px 20px;
-  float: left;
-}
-
 .form-control, .btn, 
 .dropdown-menu  {
   border-radius: 0;
@@ -89,6 +82,13 @@ h1, h2, h3, h4 {
 
 .uppercase {
   text-transform: uppercase;
+}
+
+.center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .vertical-center {
